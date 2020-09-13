@@ -22,7 +22,10 @@ body {
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: repeat(3, fit-content(100%));
-  grid-template-areas: "header" "illustration" "text";
+  grid-template-areas:
+    "header"
+    "illustration"
+    "text";
   grid-gap: 2rem;
 }
 
@@ -30,6 +33,7 @@ header {
   grid-area: header;
 }
 .illustration {
+  position: relative;
   grid-area: illustration;
 }
 .text {
@@ -72,15 +76,13 @@ article > p {
   margin: 1rem 0;
 }
 
-.illustration {
-  position: relative;
-}
-
 @media (min-width: 600px) {
   body {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, fit-content(100%));
-    grid-template-areas: "header illustration" "text illustration";
+    grid-template-areas:
+      "header illustration"
+      "text illustration";
     row-gap: 1rem;
   }
   .illustration {
