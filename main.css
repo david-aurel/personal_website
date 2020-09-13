@@ -46,7 +46,7 @@ p {
   font-weight: 300;
 }
 
-p a {
+.secondaryLink {
   font-style: italic;
 }
 
@@ -59,6 +59,7 @@ article:not(:last-of-type) {
   flex-direction: column;
   align-items: flex-start;
 }
+.links p,
 .links a {
   display: inline-block;
   margin: 0.5rem 0;
