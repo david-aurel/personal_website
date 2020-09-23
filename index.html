@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/reset.css" />
     <link rel="stylesheet" href="/main.css" />
+    <link rel="stylesheet" href="animation.css" />
     <title>David Durlan</title>
   </head>
   <body>
@@ -164,129 +165,6 @@
             xlink:href="#linear-gradient-7"
           />
           <style>
-            /* animate motor wiggle */
-            #Engine_Top {
-              transform-origin: 75% 50%;
-              animation: wiggle 80ms infinite;
-            }
-            @keyframes wiggle {
-              0%,
-              100% {
-                transform: rotate(-0.2deg);
-              }
-              50% {
-                transform: rotate(0.2deg);
-              }
-            }
-
-            /* animate propeller turning */
-            #Propeller_Arms {
-              transform-origin: 13% 92%;
-              animation: start-propeller 10s linear,
-                propeller 250ms linear infinite;
-            }
-            @keyframes propeller {
-              0%,
-              100% {
-                transform: scale(1);
-              }
-              50% {
-                transform: scale(-1);
-              }
-            }
-            @keyframes start-propeller {
-              0%,
-              50% {
-                opacity: 0;
-              }
-              100% {
-                opacity: 1;
-              }
-            }
-
-            /* animate boat wiggle */
-            #Man {
-              transform-origin: 30% 100%;
-              animation: boat-wiggle 370ms infinite;
-            }
-            @keyframes boat-wiggle {
-              0%,
-              100% {
-                transform: rotate(0deg);
-              }
-              50% {
-                transform: rotate(-0.7deg);
-              }
-            }
-
-            /* animate opening laptop */
-            #Laptop_top {
-              transform-origin: 81.3% 40.8%;
-              animation: open-laptop 2s;
-            }
-            @keyframes open-laptop {
-              0% {
-                transform: rotate(-106deg);
-              }
-              100% {
-              }
-            }
-
-            /* animate left arm opening the laptop */
-            #L_arm {
-              transform-origin: 48% 22%;
-              animation: l-arm-opening-laptop 4s;
-            }
-            #L_lower_arm {
-              transform-origin: 50% 42.5%;
-              animation: l-low-arm-opening-laptop 4s, typing 300ms 4s infinite;
-            }
-            @keyframes l-arm-opening-laptop {
-              0% {
-                transform: rotate(29deg);
-              }
-              50% {
-                transform: rotate(-38deg);
-              }
-              100% {
-              }
-            }
-            @keyframes l-low-arm-opening-laptop {
-              0% {
-                transform: rotate(-23deg);
-              }
-              13% {
-                transform: rotate(-24deg);
-              }
-              50% {
-                transform: rotate(15deg);
-              }
-            }
-
-            /* animate typing */
-            #R_arm {
-              transform-origin: 50% 50%;
-              animation: typing 300ms 4150ms infinite;
-            }
-            @keyframes typing {
-              0%,
-              100% {
-              }
-              50% {
-                transform: rotate(-3deg);
-              }
-            }
-
-            /* delay for boat animations  */
-
-            #Man {
-              animation-delay: 8s;
-            }
-
-            #Engine_Top {
-              animation-delay: 5.5s;
-            }
-
             .cls-2 {
               fill: #ccc;
             }
