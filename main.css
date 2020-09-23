@@ -32,9 +32,13 @@ body {
 header {
   grid-area: header;
 }
+.illustration-wrapper {
+  position: relative;
+  padding-bottom: 50px;
+  grid-area: illustration;
+}
 .illustration {
   position: relative;
-  grid-area: illustration;
 }
 .text {
   z-index: 1;
@@ -49,6 +53,7 @@ h1 {
 
 p {
   font-weight: 300;
+  line-height: 24px;
 }
 
 .secondaryLink {
@@ -77,6 +82,31 @@ article > p {
   margin: 1rem 0;
 }
 
+.animation-buttons {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+.animation-buttons button {
+  height: 40px;
+  width: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 2px;
+  color: var(--main-color);
+}
+.start-animation-button {
+  font-size: 17px;
+  padding-top: 4px;
+}
+.stop-animation-button {
+  font-size: 12px;
+  padding-right: 10px;
+}
+
 @media (min-width: 600px) {
   body {
     grid-template-columns: repeat(2, 1fr);
@@ -86,7 +116,7 @@ article > p {
       "text illustration";
     row-gap: 1rem;
   }
-  .illustration {
+  .illustration-wrapper {
     min-width: 40%;
     align-self: center;
   }
@@ -98,40 +128,5 @@ article > p {
 @media (min-width: 1200px) {
   h1 {
     font-size: 6rem;
-  }
-}
-
-/* animate wave for illustration*/
-.water {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 15%;
-  animation: water 11s;
-}
-@keyframes water {
-  0% {
-    transform: translateY(100%);
-  }
-  50% {
-    transform: translateY(100%);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-.wave {
-  width: 100%;
-  height: 100%;
-  background: url("/wave.svg");
-  background-size: contain;
-  animation: wave 300ms linear infinite;
-}
-@keyframes wave {
-  0% {
-    background-position: 0% 0%;
-  }
-  100% {
-    background-position: -233%;
   }
 }
