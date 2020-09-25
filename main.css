@@ -24,8 +24,8 @@ body {
   grid-template-rows: repeat(3, fit-content(100%));
   grid-template-areas:
     "header"
-    "illustration"
-    "text";
+    "text"
+    "illustration";
   grid-gap: 2rem;
 }
 
