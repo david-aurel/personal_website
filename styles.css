@@ -1,0 +1,81 @@
+/* Roboto Font */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+/* variables */
+:root {
+  --primary-color: #0012ac;
+  --muted-color: #737373;
+  --text-color: black;
+  --background-color: #fafafa;
+}
+/* if user has dark mode turned on */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #fafafa;
+    --muted-color: #858585;
+    --text-color: #fafafa;
+    --background-color: #1c1c1c;
+  }
+}
+
+/* general */
+html {
+  font-family: "Roboto", sans-serif;
+}
+body {
+  background-color: var(--background-color);
+}
+p {
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+/* main page */
+#main-page {
+  margin: 0 auto;
+  padding: 6vw;
+  overflow: hidden;
+}
+.header {
+  margin-bottom: 1rem;
+}
+.title {
+  font-size: 14.6vw;
+  font-weight: 500;
+  color: var(--text-color);
+}
+.text {
+  margin-bottom: 3rem;
+}
+.text > p:not(:last-of-type) {
+  margin-bottom: 1rem;
+}
+.main-link {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--primary-color);
+  margin-bottom: 7rem;
+}
+.subtitle {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--muted-color);
+}
+.external-link {
+  color: var(--muted-color);
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+.external-link:first-of-type {
+  margin-top: 0.8rem;
+}
+@media (min-width: 600px) {
+  .header {
+    margin-bottom: -3rem;
+  }
+  .title {
+    font-size: 15.5vw;
+    transform: translateY(-9vw) scale(1.19);
+  }
+}
