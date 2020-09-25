@@ -48,7 +48,7 @@ p {
   grid-area: text;
   margin-bottom: 2rem;
 }
-.text > p:not(:first-of-type):not(:last-of-type) {
+.text > p:not(:last-of-type) {
   margin-bottom: 1rem;
 }
 .secondaryLink {
