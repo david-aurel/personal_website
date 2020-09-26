@@ -1,14 +1,15 @@
-/* Roboto Font */
+/* Font */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 /* variables */
 :root {
+  /* colors */
   --primary-color: #0d12a5;
   --muted-color: #737373;
   --text-color: black;
   --background-color: #fafafa;
 }
-/* if user has dark mode turned on */
+/* dark mode */
 @media (prefers-color-scheme: dark) {
   :root {
     --primary-color: #fa89b7;
@@ -24,18 +25,25 @@ html {
 }
 body {
   background-color: var(--background-color);
+  margin: 30px;
+  margin-left: max(20px, 6vw);
+  margin-right: max(20px, 6vw);
 }
 p {
   font-weight: 400;
   line-height: 1.5;
   color: var(--text-color);
 }
+svg {
+  fill: currentColor;
+}
+.icon {
+  height: 10px;
+  width: 10px;
+}
 
-/* main page */
-#main-page {
-  margin: 30px;
-  margin-left: max(20px, 6vw);
-  margin-right: max(20px, 6vw);
+/* home page */
+#home {
 }
 .header {
   margin-bottom: 1rem;
@@ -53,8 +61,8 @@ p {
 .text > p:not(:last-of-type) {
   margin-bottom: 1rem;
 }
-.main-link {
-  display: block;
+.nav-link {
+  display: inline-block;
   font-size: 1.3rem;
   color: var(--primary-color);
   margin-bottom: 7rem;
@@ -71,4 +79,21 @@ p {
 }
 .external-link:first-of-type {
   margin-top: 0.8rem;
+}
+
+/* projects page */
+#projects {
+}
+
+/* Routing*/
+/* show projects page only when url contains '/#projects' */
+#projects {
+  display: none;
+}
+#projects:target {
+  display: block;
+}
+/* hide home page when url contains '/#projects' */
+#projects:target ~ #home {
+  display: none;
 }

@@ -98,8 +98,7 @@ header,
 hgroup,
 menu,
 nav,
-section,
-object {
+section {
   display: block;
 }
 
