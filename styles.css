@@ -24,6 +24,7 @@ html {
   font-family: "Roboto", sans-serif;
 }
 body {
+  max-width: 800px;
   background-color: var(--background-color);
   margin: 30px;
   margin-left: max(20px, 6vw);
@@ -42,17 +43,13 @@ svg {
   width: 10px;
 }
 
-/* home page */
-#home {
-}
-.header {
-  margin-bottom: 1rem;
-}
+/* layout */
 .title {
   font-size: 4rem;
   font-size: clamp(32px, 14.6vw, 5.4rem);
   font-weight: 500;
   color: var(--text-color);
+  margin-bottom: 1rem;
 }
 .text {
   margin-bottom: 3rem;
@@ -81,11 +78,14 @@ svg {
   margin-top: 0.8rem;
 }
 
-/* projects page */
-#projects {
+/* projects */
+.illustration-wrapper {
+  position: relative;
+  height: 0;
+  padding-top: calc(90% + 18px); /* todo: whatever this is*/
 }
 
-/* Routing*/
+/* routing*/
 /* show projects page only when url contains '/#projects' */
 #projects {
   display: none;
