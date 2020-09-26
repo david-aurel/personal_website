@@ -26,9 +26,11 @@ html {
 body {
   max-width: 800px;
   background-color: var(--background-color);
-  margin: 30px;
   margin-left: max(20px, 6vw);
   margin-right: max(20px, 6vw);
+}
+footer {
+  margin: 3rem 0;
 }
 p {
   font-weight: 400;
@@ -49,7 +51,7 @@ svg {
   font-size: clamp(32px, 14.6vw, 5.4rem);
   font-weight: 500;
   color: var(--text-color);
-  margin-bottom: 1rem;
+  margin: 1rem 0;
 }
 .text {
   margin-bottom: 3rem;
@@ -62,7 +64,7 @@ svg {
   display: inline-block;
   font-size: 1.3rem;
   color: var(--primary-color);
-  margin-bottom: 7rem;
+  margin: 3rem 0;
 }
 .subtitle {
   font-size: 1.1rem;
