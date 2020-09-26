@@ -3,7 +3,7 @@
 
 /* variables */
 :root {
-  --primary-color: #0012ac;
+  --primary-color: #0d12a5;
   --muted-color: #737373;
   --text-color: black;
   --background-color: #fafafa;
@@ -11,7 +11,7 @@
 /* if user has dark mode turned on */
 @media (prefers-color-scheme: dark) {
   :root {
-    --primary-color: #fafafa;
+    --primary-color: #fa89b7;
     --muted-color: #858585;
     --text-color: #fafafa;
     --background-color: #1c1c1c;
@@ -26,27 +26,29 @@ body {
   background-color: var(--background-color);
 }
 p {
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.5;
   color: var(--text-color);
 }
 
 /* main page */
 #main-page {
-  margin: 0 auto;
-  padding: 6vw;
-  overflow: hidden;
+  margin: 30px;
+  margin-left: max(20px, 6vw);
+  margin-right: max(20px, 6vw);
 }
 .header {
   margin-bottom: 1rem;
 }
 .title {
-  font-size: 14.6vw;
+  font-size: 4rem;
+  font-size: clamp(32px, 14.6vw, 5.4rem);
   font-weight: 500;
   color: var(--text-color);
 }
 .text {
   margin-bottom: 3rem;
+  max-width: 500px;
 }
 .text > p:not(:last-of-type) {
   margin-bottom: 1rem;
@@ -69,13 +71,4 @@ p {
 }
 .external-link:first-of-type {
   margin-top: 0.8rem;
-}
-@media (min-width: 600px) {
-  .header {
-    margin-bottom: -3rem;
-  }
-  .title {
-    font-size: 15.5vw;
-    transform: translateY(-9vw) scale(1.19);
-  }
 }
