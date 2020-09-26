@@ -116,14 +116,6 @@ html {
   box-sizing: inherit;
 }
 
-.sr-only {
-  position: absolute;
-  clip: rect(1px, 1px, 1px, 1px);
-}
-svg {
-  overflow: visible;
-}
-
 iframe {
   height: 100%;
   width: 100%;
