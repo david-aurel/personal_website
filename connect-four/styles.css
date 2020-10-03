@@ -1,0 +1,188 @@
+.connect-four {
+  --player1: #f84848;
+  --player2: #38a858;
+  --primary: #5260ff;
+  --primary-muted: #d6d6ff;
+  font-family: "Roboto", sans-serif;
+}
+
+/* general */
+.connect-four {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    "player player reset "
+    "board board board"
+    "score score score";
+  margin: 2rem 0;
+}
+.board-aspect-ratio {
+  position: relative;
+  height: 0;
+  padding-top: 86%;
+  grid-area: board;
+}
+
+/* board */
+.board {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.slot {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-top: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hole-wrapper {
+  position: absolute;
+  width: 20%;
+  height: 20%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hole {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transition: 0.5s;
+}
+.hole:not(.player1):not(.player2) {
+  background: transparent;
+  border: 2px solid var(--primary);
+}
+
+.hole.player1,
+.hole.player2 {
+  transform: scale(3.5);
+  transition: 0.2s;
+}
+.hole.player1 {
+  background: var(--player1);
+}
+
+.hole.player2 {
+  background: var(--player2);
+}
+
+.select {
+  transform: scale(1.5);
+  transition: 0.1s;
+}
+
+.lose {
+  height: 40%;
+  width: 40%;
+}
+
+/* score display */
+.playerDisplay {
+  grid-area: player;
+  align-self: center;
+  border-radius: 50%;
+  height: clamp(20px, 10vw, 4rem);
+  width: clamp(20px, 10vw, 4rem);
+  margin-right: 1.5rem;
+}
+.playerDisplay.player1 {
+  border: 5px solid var(--player1);
+}
+.playerDisplay.player2 {
+  border: 5px solid var(--player2);
+}
+
+.score {
+  grid-area: score;
+  align-self: center;
+  display: flex;
+  font-size: clamp(24px, 14vw, 6rem);
+  font-weight: bold;
+  color: var(--primary-muted);
+}
+
+.reset {
+  grid-area: reset;
+  justify-self: end;
+  align-self: center;
+  width: clamp(20px, 10vw, 4rem);
+  height: clamp(20px, 10vw, 4rem);
+  border: none;
+  padding: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--primary);
+  background: var(--primary-muted);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.reset svg {
+  height: 65%;
+  width: 65%;
+}
+
+.score1 {
+  color: var(--player1);
+}
+.score2 {
+  color: var(--player2);
+}
+.inactive {
+  display: none;
+}
+
+@media (min-width: 600px) {
+  .connect-four {
+    grid-template-columns: 69.1% 25.9%;
+    grid-template-rows: repeat(3, 33.33%);
+    grid-column-gap: 5%;
+    grid-template-areas:
+      "board reset"
+      "board player"
+      "board score";
+  }
+  .reset {
+    justify-self: start;
+    align-self: start;
+  }
+  .playerDisplay {
+    align-self: center;
+  }
+  .score {
+    align-self: end;
+  }
+}
+
+/* dark mode */
+@media (prefers-color-scheme: dark) {
+  .connect-four {
+    --primary: #8181b1;
+  }
+  .reset {
+    color: var(--primary-muted);
+    background: var(--primary);
+  }
+  .score {
+    color: var(--primary);
+  }
+}

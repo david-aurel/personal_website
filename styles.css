@@ -12,7 +12,7 @@
 /* dark mode */
 @media (prefers-color-scheme: dark) {
   :root {
-    --primary-color: #fa89b7;
+    --primary-color: #f976ab;
     --muted-color: #858585;
     --text-color: #fafafa;
     --background-color: #1c1c1c;
@@ -26,46 +26,94 @@ html {
 body {
   max-width: 800px;
   background-color: var(--background-color);
-  margin-left: max(20px, 6vw);
-  margin-right: max(20px, 6vw);
+  margin: 0 auto;
+  padding: 0 20px;
 }
 footer {
-  margin: 3rem 0;
+  margin-bottom: 3rem;
 }
-p {
+p,
+label {
   font-weight: 400;
   line-height: 1.5;
   color: var(--text-color);
 }
+button:hover,
+a:hover {
+  transform: scale(1.02);
+}
+button:active,
+a:active {
+  transform: translateY(0.2rem);
+}
 svg {
   fill: currentColor;
 }
+hr {
+  margin: 3rem 0;
+  border: none;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--muted-color);
+}
 .icon {
-  height: 10px;
-  width: 10px;
+  height: 12px;
+  width: 12px;
+  margin: 0 5px;
+  color: currentColor;
 }
 
 /* layout */
 .title {
   font-size: 4rem;
-  font-size: clamp(32px, 14.6vw, 5.4rem);
+  font-size: clamp(28px, 10vw, 6rem);
+  letter-spacing: 0.7vw;
   font-weight: 500;
   color: var(--text-color);
-  margin: 1rem 0;
+  margin: 1rem 0 1.5rem 0;
+}
+.secondary-title {
+  font-size: 4rem;
+  font-size: clamp(28px, 10vw, 4rem);
+  font-weight: 500;
+  color: var(--text-color);
+  margin: 1rem 0 1.5rem 0;
 }
 .text {
-  margin-bottom: 3rem;
-  max-width: 500px;
+  max-width: 600px;
 }
 .text > p:not(:last-of-type) {
   margin-bottom: 1rem;
 }
 .nav-link {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.3rem;
+  color: var(--background-color);
+  margin: 4.5rem 0;
+  text-decoration: none;
+  background: var(--primary-color);
+  padding: 12px;
+  border-radius: 4px;
+}
+.secondary-nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
   font-size: 1.3rem;
   color: var(--primary-color);
-  margin: 3rem 0;
+  margin: 3rem 0 1.5rem 0;
+  padding: 12px 0;
 }
+.nav-link span {
+  text-decoration: none;
+  margin: 0 5px;
+}
+.secondary-nav-link span {
+  margin: 0 5px;
+}
+
 .subtitle {
   font-size: 1.1rem;
   font-weight: 500;
@@ -80,22 +128,27 @@ svg {
   margin-top: 0.8rem;
 }
 
-/* projects */
-.illustration-wrapper {
-  position: relative;
-  height: 0;
-  padding-top: calc(90% + 18px); /* todo: whatever this is*/
+@media (min-width: 600px) {
+  hr {
+    visibility: hidden;
+  }
 }
 
 /* routing*/
-/* show projects page only when url contains '/#projects' */
-#projects {
+
+/* hide all pages */
+body > * {
   display: none;
 }
-#projects:target {
+/* except the default for the  '/' path) */
+#home {
   display: block;
 }
-/* hide home page when url contains '/#projects' */
-#projects:target ~ #home {
+/* show the page with the id that matches the hash route (/#projects, /#about etc.) */
+body > *:target {
+  display: block;
+}
+/* hide the default '/' page when something else is active */
+body > *:target ~ #home {
   display: none;
 }
