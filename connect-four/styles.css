@@ -1,6 +1,6 @@
 .connect-four {
   --player1: #f84848;
-  --player2: #38a858;
+  --player2: #2fa04f;
   --primary: #5260ff;
   --primary-muted: #d6d6ff;
   font-family: "Roboto", sans-serif;
@@ -177,6 +177,7 @@
 @media (prefers-color-scheme: dark) {
   .connect-four {
     --primary: #8181b1;
+    --primary-muted: #e8e8e8;
   }
   .reset {
     color: var(--primary-muted);
