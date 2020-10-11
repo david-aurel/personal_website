@@ -117,7 +117,7 @@
   display: flex;
   font-size: clamp(24px, 14vw, 6rem);
   font-weight: bold;
-  color: var(--primary-muted);
+  color: var(--primary);
 }
 
 .reset {
