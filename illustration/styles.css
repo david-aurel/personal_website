@@ -8,7 +8,6 @@ input[type="radio"] ~ label {
   margin-right: 20px;
 }
 .illustration-wrapper {
-  overflow: hidden;
   margin-top: 1.5rem;
 }
 .illustration {
