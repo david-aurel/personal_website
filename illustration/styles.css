@@ -45,6 +45,7 @@ input[type="radio"] ~ label {
 }
 #start:checked ~ .illustration #Propeller_Arms {
   animation: start-propeller 10s linear, propeller 250ms linear infinite;
+  animation-fill-mode: forwards;
 }
 #stop:checked ~ .illustration #Propeller_Arms {
   animation: none;
