@@ -90,12 +90,12 @@ hr {
   align-items: center;
   justify-content: space-between;
   font-size: 1.3rem;
-  color: var(--background-color);
+  color: var(--primary-color);
   margin: 4.5rem 0;
   text-decoration: none;
-  background: var(--primary-color);
   padding: 12px;
-  border-radius: 4px;
+  border: 2px solid var(--primary-color);
+  border-radius: 9px;
 }
 .secondary-nav-link {
   display: inline-flex;
@@ -105,6 +105,7 @@ hr {
   color: var(--primary-color);
   margin: 3rem 0 1.5rem 0;
   padding: 12px 0;
+  text-decoration: none;
 }
 .nav-link span {
   text-decoration: none;
