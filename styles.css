@@ -66,18 +66,14 @@ hr {
 /* layout */
 .title {
   font-size: 4rem;
-  font-size: clamp(28px, 13.9vw, 6rem);
-  letter-spacing: 0.7vw;
-  font-weight: 500;
-  color: var(--text-color);
-  margin: 1rem 0 1.5rem 0;
-}
-.secondary-title {
-  font-size: 4rem;
   font-size: clamp(28px, 10vw, 4rem);
   font-weight: 500;
   color: var(--text-color);
   margin: 1rem 0 1.5rem 0;
+}
+.invisible-title {
+  color: var(--background-color);
+  margin-top: 2rem;
 }
 .text {
   max-width: 600px;
@@ -132,6 +128,12 @@ hr {
 @media (min-width: 600px) {
   hr {
     visibility: hidden;
+  }
+}
+@media (min-height: 590px) {
+  footer {
+    position: fixed;
+    bottom: 0;
   }
 }
 
