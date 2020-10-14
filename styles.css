@@ -64,8 +64,8 @@ hr {
 }
 
 /* layout */
-header {
-  margin-top: 3rem;
+#home {
+  padding-top: 3rem;
 }
 .title {
   font-size: 4rem;
