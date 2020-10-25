@@ -4,15 +4,15 @@
 /* variables */
 :root {
   /* colors */
-  --primary-color: #0d12a5;
+  --primary-color: var(--text-color);
   --muted-color: #737373;
-  --text-color: black;
+  --text-color: #1c1c1c;
   --background-color: #fafafa;
 }
 /* dark mode */
 @media (prefers-color-scheme: dark) {
   :root {
-    --primary-color: #f976ab;
+    --primary-color: var(--text-color);
     --muted-color: #858585;
     --text-color: #fafafa;
     --background-color: #1c1c1c;
@@ -38,10 +38,6 @@ label {
   line-height: 1.5;
   color: var(--text-color);
 }
-button:hover,
-a:hover {
-  transform: scale(1.02);
-}
 button:active,
 a:active {
   transform: translateY(0.2rem);
@@ -59,13 +55,15 @@ hr {
 .icon {
   height: 12px;
   width: 12px;
-  margin: 0 5px;
   color: currentColor;
 }
 
 /* layout */
 #home {
   padding-top: 1rem;
+}
+#projects {
+  padding-top: 2rem;
 }
 .title {
   font-size: 4rem;
@@ -76,38 +74,47 @@ hr {
 }
 .text {
   max-width: 600px;
+  margin-bottom: 1.5rem;
 }
 .text > p:not(:last-of-type) {
   margin-bottom: 1rem;
 }
-.nav-link {
+.nav-link-forward,
+.nav-link-backward {
   display: inline-flex;
+  position: relative;
   align-items: center;
   justify-content: space-between;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   color: var(--primary-color);
-  margin: 4.5rem 0;
   text-decoration: none;
-  padding: 12px;
-  border: 2px solid var(--primary-color);
-  border-radius: 9px;
+  padding: 10px 0;
 }
-.secondary-nav-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 1.3rem;
-  color: var(--primary-color);
-  margin: 3rem 0 1.5rem 0;
-  padding: 12px 0;
-  text-decoration: none;
+.nav-link-forward > *:not(:last-child),
+.nav-link-backward > *:not(:last-child) {
+  margin-right: 10px;
 }
-.nav-link span {
-  text-decoration: none;
-  margin: 0 5px;
+.nav-link-forward:after,
+.nav-link-backward:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transition: width 0.3s;
 }
-.secondary-nav-link span {
-  margin: 0 5px;
+.nav-link-forward:after {
+  left: 0;
+}
+.nav-link-backward:after {
+  right: 0;
+}
+.nav-link-forward:hover:after,
+.nav-link-forward:focus:after,
+.nav-link-backward:hover:after,
+.nav-link-backward:focus:after {
+  width: 100%;
 }
 
 .subtitle {
