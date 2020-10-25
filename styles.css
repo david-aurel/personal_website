@@ -74,7 +74,7 @@ hr {
 }
 .text {
   max-width: 600px;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 .text > p:not(:last-of-type) {
   margin-bottom: 1rem;
@@ -89,7 +89,9 @@ hr {
   color: var(--primary-color);
   text-decoration: none;
   padding: 10px 0;
-  margin-bottom: 2rem;
+}
+#projects .nav-link-backward {
+  margin-bottom: 1rem;
 }
 .nav-link-forward > *:not(:last-child),
 .nav-link-backward > *:not(:last-child) {
