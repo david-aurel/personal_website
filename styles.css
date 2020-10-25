@@ -106,6 +106,7 @@ hr {
   height: 2px;
   background: var(--primary-color);
   transition: width 0.3s;
+  border-radius: 2px;
 }
 /* smartphones, touchscreens */
 @media (hover: none) and (pointer: coarse) {
