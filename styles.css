@@ -62,8 +62,14 @@ hr {
 #home {
   padding-top: 1rem;
 }
+#home .nav-link-forward {
+  margin-top: 3rem;
+}
 #projects {
   padding-top: 2rem;
+}
+#projects .nav-link-backward {
+  margin-bottom: 1rem;
 }
 .title {
   font-size: 4rem;
@@ -89,9 +95,6 @@ hr {
   color: var(--primary-color);
   text-decoration: none;
   padding: 10px 0;
-}
-#projects .nav-link-backward {
-  margin-bottom: 1rem;
 }
 .nav-link-forward > *:not(:last-child),
 .nav-link-backward > *:not(:last-child) {
