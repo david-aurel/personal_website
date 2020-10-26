@@ -6,7 +6,7 @@
   /* colors */
   --primary-color: var(--text-color);
   --muted-color: #737373;
-  --text-color: #1c1c1c;
+  --text-color: #121212;
   --background-color: #fafafa;
 }
 /* dark mode */
@@ -15,7 +15,7 @@
     --primary-color: var(--text-color);
     --muted-color: #858585;
     --text-color: #fafafa;
-    --background-color: #1c1c1c;
+    --background-color: #121212;
   }
 }
 
