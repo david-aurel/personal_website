@@ -44,9 +44,6 @@ center,
 dl,
 dt,
 dd,
-ol,
-ul,
-li,
 fieldset,
 form,
 label,
@@ -100,10 +97,6 @@ menu,
 nav,
 section {
   display: block;
-}
-
-ul {
-  list-style: none;
 }
 
 html {
