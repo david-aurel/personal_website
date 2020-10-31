@@ -823,6 +823,67 @@
         <script src="/connect-four/script.js"></script>
       </section>
       <hr />
+
+      <section>
+        <h1 class="title">Social Network</h1>
+        <article class="text">
+          <p>Fully functional.</p>
+          <p>
+            Users can sign up and login, reset their password, edit their
+            profile, as well as search for other users and interact with them.
+            They can manage connections, see friends of their friends, or have a
+            chat.
+          </p>
+          <p>
+            Check it out on
+            <a
+              href="https://github.com/david-aurel/social_network"
+              taget="_blank"
+              rel="noopener noreferrer"
+              >Github</a
+            >.
+          </p>
+          <img src="./social-network/social-network-screens.png" />
+          <h2 class="secondary-title">Technologies used:</h2>
+          <h3>Backend</h3>
+          <ul>
+            <li>
+              A Node.js Express server and a SQL database are CRUDfully keeping
+              everything together
+            </li>
+            <li>
+              AWS services like S3 and SES are used to store profile images and
+              send out forgot password emails
+            </li>
+            <li>
+              A Redis database is used to manage codes for resetting the
+              passwords
+            </li>
+            <li>
+              Passwords are being salted, hashed and then encrypted using Bcrypt
+            </li>
+            <li>
+              Cookies and browser sessions are used to manage the logged in /
+              logged out state
+            </li>
+            <li>
+              The app is protected from potential SQL injections and CSURF
+              attacks
+            </li>
+            <li>Socket.io and the WebSockets protocol power a live chat</li>
+          </ul>
+          <h3>Frontend</h3>
+          <ul>
+            <li>React is used to render the UI</li>
+            <li>Redux is used to manage the global frontend state</li>
+            <li>
+              Webpack and Babel are used to bundle, build and compile the
+              frontend
+            </li>
+          </ul>
+        </article>
+      </section>
+      <hr />
     </div>
 
     <!-- main page -->
@@ -872,19 +933,19 @@
 
     <!-- Icons -->
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
-      <symbol id="back-icon" viewBox="0 0 80 100">
+      <symbol id="back-icon" viewBox="0 0 80 100" fill="currentColor">
         <title>back</title>
         <path
           d="M4.73373 59.1635C-1.57791 55.0908 -1.57791 44.9092 4.73372 40.8365L65.7988 1.43337C72.1104 -2.6393 80 2.45154 80 10.5969L80 89.4031C80 97.5484 72.1105 102.639 65.7988 98.5666L4.73373 59.1635Z"
         />
       </symbol>
-      <symbol id="forward-icon" viewBox="0 0 80 100">
+      <symbol id="forward-icon" viewBox="0 0 80 100" fill="currentColor">
         <title>forward</title>
         <path
           d="M75.2663 40.8365C81.5779 44.9092 81.5779 55.0908 75.2663 59.1635L14.2012 98.5666C7.88955 102.639 -5.30706e-06 97.5484 -4.95102e-06 89.4031L-1.50629e-06 10.5969C-1.15024e-06 2.45156 7.88955 -2.63929 14.2012 1.43338L75.2663 40.8365Z"
         />
       </symbol>
-      <symbol id="reset-icon" viewBox="0 0 512 512">
+      <symbol id="reset-icon" viewBox="0 0 512 512" fill="currentColor">
         <title>reset</title>
         <path
           d="M256.455 8c66.269.119 126.437 26.233 170.859 68.685l35.715-35.715C478.149 25.851 504 36.559 504 57.941V192c0 13.255-10.745 24-24 24H345.941c-21.382 0-32.09-25.851-16.971-40.971l41.75-41.75c-30.864-28.899-70.801-44.907-113.23-45.273-92.398-.798-170.283 73.977-169.484 169.442C88.764 348.009 162.184 424 256 424c41.127 0 79.997-14.678 110.629-41.556 4.743-4.161 11.906-3.908 16.368.553l39.662 39.662c4.872 4.872 4.631 12.815-.482 17.433C378.202 479.813 319.926 504 256 504 119.034 504 8.001 392.967 8 256.002 7.999 119.193 119.646 7.755 256.455 8z"
