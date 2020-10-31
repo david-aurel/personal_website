@@ -1,8 +1,13 @@
 <svg width="434" height="500" viewBox="0 0 434 500" fill="none" xmlns="http://www.w3.org/2000/svg">
 <style>
     path {
-        stroke: #FF5592;
+        stroke: black;
     }
+    @media (prefers-color-scheme: dark) {
+      path {    
+        stroke: white;
+    }
+}
   </style>
 <path d="M383.621 250C383.621 360.457 294.078 450 183.621 450C134.092 450 88.812 432.043 53.8516 402.192L113.751 62.5289C135.46 54.4338 158.982 50 183.621 50C294.078 50 383.621 139.543 383.621 250Z" stroke="black" stroke-width="100"/>
 </svg>
