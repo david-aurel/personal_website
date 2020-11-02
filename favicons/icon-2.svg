@@ -1,0 +1,13 @@
+<svg width="110" height="138" viewBox="0 0 110 138" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+  path {
+    stroke: black;
+  }
+  @media (prefers-color-scheme: dark) {
+    path {    
+      stroke: white;
+    }
+  }
+</style>
+<path d="M99.5 69C99.5 101.258 73.2014 127.5 40.6477 127.5C30.0508 127.5 20.1297 124.724 11.5558 119.867L30.7606 11.3203C33.9701 10.7813 37.2726 10.5 40.6477 10.5C73.2014 10.5 99.5 36.7417 99.5 69Z" stroke="black" stroke-width="21"/>
+</svg>
