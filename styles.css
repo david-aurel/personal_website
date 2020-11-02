@@ -112,6 +112,7 @@ h3 {
   color: var(--primary-color);
   text-decoration: none;
   padding: 10px 0;
+  outline-offset: 8px;
 }
 .nav-link-forward > *:not(:last-child),
 .nav-link-backward > *:not(:last-child) {
