@@ -39,7 +39,7 @@ input[type="radio"] ~ label {
 
 /* animate propeller turning */
 #Propeller_Arms {
-  transform-origin: 13% 92%;
+  transform-origin: 16% 92%;
   opacity: 0;
 }
 #start:checked ~ .illustration #Propeller_Arms {
@@ -101,7 +101,7 @@ input[type="radio"] ~ label {
 
 /* animate opening laptop */
 #Laptop_top {
-  transform-origin: 81.3% 40.8%;
+  transform-origin: 88.4% 40.7%;
   transform: rotate(-106deg);
 }
 #start:checked ~ .illustration #Laptop_top {
@@ -132,27 +132,27 @@ input[type="radio"] ~ label {
 }
 
 /* animate left arm opening the laptop */
-#L_arm {
-  transform-origin: 48% 22%;
+#R_arm {
+  transform-origin: 50% 20%;
   animation-fill-mode: forwards;
 }
-#start:checked ~ .illustration #L_arm {
-  animation: l-arm-opening-laptop 4s;
+#start:checked ~ .illustration #R_arm {
+  animation: r-arm-opening-laptop 4s;
 }
-#stop:checked ~ .illustration #L_arm {
-  animation: l-arm-closing-laptop 4s;
+#stop:checked ~ .illustration #R_arm {
+  animation: r-arm-closing-laptop 4s;
 }
-#L_lower_arm {
+#R_lower_arm {
   transform-origin: 50% 42.5%;
   animation-fill-mode: forwards;
 }
-#start:checked ~ .illustration #L_lower_arm {
-  animation: l-low-arm-opening-laptop 4s, typing 300ms 4s infinite;
+#start:checked ~ .illustration #R_lower_arm {
+  animation: r-low-arm-opening-laptop 4s, typing 300ms 4s infinite;
 }
-#stop:checked ~ .illustration #L_lower_arm {
-  animation: l-low-arm-closing-laptop 4s;
+#stop:checked ~ .illustration #R_lower_arm {
+  animation: r-low-arm-closing-laptop 4s;
 }
-@keyframes l-arm-opening-laptop {
+@keyframes r-arm-opening-laptop {
   10% {
     transform: rotate(29deg);
   }
@@ -160,7 +160,7 @@ input[type="radio"] ~ label {
     transform: rotate(-38deg);
   }
 }
-@keyframes l-arm-closing-laptop {
+@keyframes r-arm-closing-laptop {
   25% {
     transform: rotate(-38deg);
   }
@@ -171,7 +171,7 @@ input[type="radio"] ~ label {
     transform: rotate(0);
   }
 }
-@keyframes l-low-arm-opening-laptop {
+@keyframes r-low-arm-opening-laptop {
   10% {
     transform: rotate(-23deg);
   }
@@ -179,7 +179,7 @@ input[type="radio"] ~ label {
     transform: rotate(15deg);
   }
 }
-@keyframes l-low-arm-closing-laptop {
+@keyframes r-low-arm-closing-laptop {
   25% {
     transform: rotate(15deg);
   }
@@ -192,13 +192,13 @@ input[type="radio"] ~ label {
 }
 
 /* animate typing */
-#R_arm {
+#L_arm {
   transform-origin: 50% 50%;
 }
-#start:checked ~ .illustration #R_arm {
+#start:checked ~ .illustration #L_arm {
   animation: typing 300ms 4150ms infinite;
 }
-#stop:checked ~ .illustration #R_arm {
+#stop:checked ~ .illustration #L_arm {
   animation: none;
 }
 @keyframes typing {
@@ -231,18 +231,17 @@ input[type="radio"] ~ label {
 .wave {
   width: 100%;
   height: 100%;
-  padding-top: 1px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 436.1 80' %3E%3Cpath id='wave' d='M0 80 C150 80 280 80 436 80 C300 80 288 0 218 0 C148 0 130 80 0 80' fill='%23fafafa' /%3E%3C/svg%3E");
   background-size: contain;
   background-clip: content-box;
-  animation: wave 300ms linear infinite;
+  animation: wave 350ms linear infinite;
 }
 @keyframes wave {
   0% {
     background-position: 0% 0%;
   }
   100% {
-    background-position: -233%;
+    background-position: -357%;
   }
 }
 
