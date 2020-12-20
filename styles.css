@@ -153,6 +153,7 @@ h3 {
   font-size: 1.1rem;
   font-weight: 500;
   color: var(--muted-color);
+  margin: 1rem 0;
 }
 .external-link {
   color: var(--muted-color);
@@ -160,7 +161,7 @@ h3 {
   margin-top: 0.5rem;
 }
 .external-link:first-of-type {
-  margin-top: 0.8rem;
+  /* margin-top: 0.8rem; */
 }
 
 @media (min-width: 600px) {
