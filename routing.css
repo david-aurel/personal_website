@@ -1,0 +1,16 @@
+/* hide all pages */
+body > * {
+  display: none;
+}
+/* except the default for the  '/' path) */
+#home {
+  display: block;
+}
+/* show the page with the id that matches the hash route (/#projects, /#about etc.) */
+body > *:target {
+  display: block;
+}
+/* hide the default '/' page when something else is active */
+body > *:target ~ #home {
+  display: none;
+}
