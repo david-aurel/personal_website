@@ -37,7 +37,7 @@
     <!-- projects page -->
     <div id="projects">
       <a class="nav-link nav-link-back" href="#home">
-        <svg class="icon">
+        <svg class="icon icon-sm">
           <use xlink:href="#chevron" />
         </svg>
         <span>Go to home</span>
@@ -902,25 +902,44 @@
       </article>
       <a class="nav-link" href="#projects">
         <span>Go to projects</span>
-        <svg class="icon">
+        <svg class="icon icon-sm">
           <use xlink:href="#chevron"></use>
         </svg>
       </a>
       <footer>
         <h1 class="subtitle">External links</h1>
         <p class="external-link">
-          <a href="https://github.com/david-aurel">Follow my code on Github</a>
           <span role="img" aria-label="goggles">🥽</span>
+          <span class="external-link-text"> Follow my code on Github: </span>
+          <a href="https://github.com/david-aurel">github.com/david-aurel</a>
         </p>
         <p class="external-link">
-          <a href="https://linkedin.com/in/daviddurlan"
-            >Connect with me on LinkedIn</a
-          >
           <span role="img" aria-label="linked paperclips">🖇</span>
+          <span class="external-link-text"> Connect with me on LinkedIn: </span>
+          <a href="https://linkedin.com/in/daviddurlan"
+            >linkedin.com/in/daviddurlan</a
+          >
         </p>
         <p class="external-link">
-          <a href="mailto:david.a.durlan@gmail.com">Write me an Email</a>
           <span role="img" aria-label="speech balloon">💬</span>
+          <span class="external-link-text"> Write me an Email: </span>
+          <spanWrite class="inline-block">
+            <a href="mailto:david.a.durlan@gmail.com" id="email"
+              >david.a.durlan@gmail.com</a
+            >
+            <button
+              class="copy-button"
+              aria-label="copy email address"
+              title="copy email address"
+            >
+              <svg class="icon icon-m">
+                <use xlink:href="#copy-icon"></use>
+              </svg>
+              <svg class="icon icon-m">
+                <use xlink:href="#success-icon"></use>
+              </svg>
+            </button>
+          </spanWrite>
         </p>
       </footer>
     </div>
@@ -937,8 +956,25 @@
         <title>reset</title>
         <path
           d="M256.455 8c66.269.119 126.437 26.233 170.859 68.685l35.715-35.715C478.149 25.851 504 36.559 504 57.941V192c0 13.255-10.745 24-24 24H345.941c-21.382 0-32.09-25.851-16.971-40.971l41.75-41.75c-30.864-28.899-70.801-44.907-113.23-45.273-92.398-.798-170.283 73.977-169.484 169.442C88.764 348.009 162.184 424 256 424c41.127 0 79.997-14.678 110.629-41.556 4.743-4.161 11.906-3.908 16.368.553l39.662 39.662c4.872 4.872 4.631 12.815-.482 17.433C378.202 479.813 319.926 504 256 504 119.034 504 8.001 392.967 8 256.002 7.999 119.193 119.646 7.755 256.455 8z"
-        ></path>
+        />
+      </symbol>
+      <symbol id="copy-icon" viewBox="0 0 24 24" fill="currentColor">
+        <title>copy to clipboard</title>
+        <path
+          fill-rule="evenodd"
+          d="M15.2 7.5H3.8c-.7 0-1.3.6-1.3 1.3v11.4c0 .7.6 1.3 1.3 1.3h11.4c.7 0 1.3-.6 1.3-1.3V8.8c0-.7-.6-1.3-1.3-1.3zM3.8 5A3.8 3.8 0 000 8.8v11.4C0 22.3 1.7 24 3.8 24h11.4c2.1 0 3.8-1.7 3.8-3.8V8.8C19 6.7 17.3 5 15.2 5H3.8z"
+        />
+        <path
+          d="M8.6 2.6H5C5.5 1 7 0 8.6 0h11.6c2 0 3.8 1.7 3.8 3.8v11.6c0 1.6-1 3-2.6 3.6V2.6H8.6z"
+        />
+      </symbol>
+      <symbol id="success-icon" viewBox="0 0 24 24" fill="currentColor">
+        <title>success</title>
+        <path
+          d="M24 4.1l-1.9-2L8.5 18l-6.7-7.7L0 12.4l6.6 7.7c1 1.2 2.7 1.2 3.7 0L24 4.1z"
+        />
       </symbol>
     </svg>
   </body>
+  <script src="/copyEmail.js"></script>
 </html>

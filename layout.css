@@ -52,9 +52,16 @@ caption {
   text-decoration: underline;
 }
 .icon {
+  color: currentColor;
+  vertical-align: bottom;
+}
+.icon-sm {
   height: 12px;
   width: 12px;
-  color: currentColor;
+}
+.icon-m {
+  height: 14px;
+  width: 14px;
 }
 
 /* layout */
@@ -110,6 +117,12 @@ h3 {
 }
 .external-link:first-of-type {
   margin-top: 0.8rem;
+}
+.external-link span[role="img"] {
+  margin-right: 10px;
+}
+.external-link-text {
+  margin-right: 5px;
 }
 
 @media (min-width: 600px) {

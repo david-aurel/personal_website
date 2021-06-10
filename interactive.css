@@ -33,6 +33,26 @@ a:active {
   transition: width 0.3s;
   border-radius: 2px;
 }
+
+.copy-button {
+  background: none;
+  border: none;
+  color: var(--muted-color);
+  cursor: pointer;
+  padding: 2px;
+  margin-left: 5px;
+}
+
+.copy-button svg:nth-child(2) {
+  display: none;
+}
+.copy-button.success svg:nth-child(2) {
+  display: initial;
+}
+.copy-button.success svg:nth-child(1) {
+  display: none;
+}
+
 /* smartphones, touchscreens */
 @media (hover: none) and (pointer: coarse) {
   .nav-link:after {
