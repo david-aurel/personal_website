@@ -29,6 +29,7 @@ body {
   padding: 0 20px;
   background-color: var(--background-color);
   color: var(--text-color);
+  text-transform: lowercase;
 }
 footer {
   margin: 3rem 0;
