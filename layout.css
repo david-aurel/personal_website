@@ -46,8 +46,13 @@ img {
   width: 100%;
 }
 
-li {
+#projects li {
   margin: 7px 0;
+}
+
+#projects ul {
+  list-style: disc;
+  padding-left: 1rem;
 }
 caption {
   text-decoration: underline;
