@@ -2,7 +2,7 @@
 :root {
   /* colors */
   --primary-color: var(--text-color);
-  --muted-color: #737373;
+  --muted-color: #525252;
   --text-color: #121212;
   --background-color: #fafafa;
 }
@@ -10,7 +10,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --primary-color: var(--text-color);
-    --muted-color: #858585;
+    --muted-color: #ababab;
     --text-color: #fafafa;
     --background-color: #1e1e23;
   }
