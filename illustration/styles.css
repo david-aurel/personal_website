@@ -1,3 +1,87 @@
+/* color illustrations */
+.cls-1,
+.cls-14 {
+  isolation: isolate;
+}
+
+.cls-2 {
+  fill: #ccc;
+}
+
+.cls-16,
+.cls-3 {
+  mix-blend-mode: soft-light;
+}
+
+.cls-4 {
+  fill: url(#linear-gradient);
+}
+
+.cls-5 {
+  fill: url(#linear-gradient-2);
+}
+
+.cls-6 {
+  fill: #999;
+}
+
+.cls-7 {
+  fill: #fc0;
+}
+
+.cls-8 {
+  fill: #301709;
+}
+
+.cls-9 {
+  fill: #edc3a6;
+}
+
+.cls-10 {
+  fill: url(#linear-gradient-3);
+}
+
+.cls-11 {
+  fill: #0078c1;
+}
+
+.cls-12 {
+  fill: url(#linear-gradient-4);
+}
+
+.cls-13,
+.cls-14 {
+  opacity: 0.3;
+}
+
+.cls-15 {
+  fill: #42210b;
+}
+
+.cls-16 {
+  opacity: 0.27;
+}
+
+.cls-17 {
+  fill: url(#linear-gradient-5);
+}
+
+.cls-18 {
+  fill: url(#linear-gradient-6);
+}
+
+.cls-19 {
+  fill: url(#linear-gradient-7);
+}
+
+.cls-20 {
+  fill: url(#linear-gradient-8);
+}
+
+.cls-21 {
+  fill: url(#linear-gradient-9);
+}
+
 input[type="radio"] {
   width: 20px;
   height: 20px;

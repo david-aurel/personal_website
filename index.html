@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
 
-    <!-- workaround. github pages doesn't allow setting http headers  -->
+    <!-- suboptimal way of adding csp but github pages doesn't allow setting http headers  -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="Content-Security-Policy:
+      content="
       default-src 'none';
       script-src 'self' https://code.jquery.com/jquery-3.3.1.min.js;
-      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      style-src 'self';
+      font-src 'self';
       img-src 'self' data:;
-      font-src 'none' https://fonts.gstatic.com;
       connect-src 'none';
       media-src 'none';
       object-src 'none';
@@ -19,11 +19,11 @@
       child-src 'none';
       frame-src 'none';
       worker-src 'none';
-      frame-ancestors 'none';
       form-action 'none'"
     />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/fonts.css" />
     <link rel="stylesheet" href="/reset.css" />
     <link rel="stylesheet" href="/routing.css" />
     <link rel="stylesheet" href="/layout.css" />
@@ -98,90 +98,6 @@
               viewBox="0 0 400 376.373"
             >
               <defs>
-                <style>
-                  .cls-1,
-                  .cls-14 {
-                    isolation: isolate;
-                  }
-
-                  .cls-2 {
-                    fill: #ccc;
-                  }
-
-                  .cls-16,
-                  .cls-3 {
-                    mix-blend-mode: soft-light;
-                  }
-
-                  .cls-4 {
-                    fill: url(#linear-gradient);
-                  }
-
-                  .cls-5 {
-                    fill: url(#linear-gradient-2);
-                  }
-
-                  .cls-6 {
-                    fill: #999;
-                  }
-
-                  .cls-7 {
-                    fill: #fc0;
-                  }
-
-                  .cls-8 {
-                    fill: #301709;
-                  }
-
-                  .cls-9 {
-                    fill: #edc3a6;
-                  }
-
-                  .cls-10 {
-                    fill: url(#linear-gradient-3);
-                  }
-
-                  .cls-11 {
-                    fill: #0078c1;
-                  }
-
-                  .cls-12 {
-                    fill: url(#linear-gradient-4);
-                  }
-
-                  .cls-13,
-                  .cls-14 {
-                    opacity: 0.3;
-                  }
-
-                  .cls-15 {
-                    fill: #42210b;
-                  }
-
-                  .cls-16 {
-                    opacity: 0.27;
-                  }
-
-                  .cls-17 {
-                    fill: url(#linear-gradient-5);
-                  }
-
-                  .cls-18 {
-                    fill: url(#linear-gradient-6);
-                  }
-
-                  .cls-19 {
-                    fill: url(#linear-gradient-7);
-                  }
-
-                  .cls-20 {
-                    fill: url(#linear-gradient-8);
-                  }
-
-                  .cls-21 {
-                    fill: url(#linear-gradient-9);
-                  }
-                </style>
                 <linearGradient
                   id="linear-gradient"
                   x1="40.704"
@@ -579,7 +495,7 @@
 
       <hr />
 
-      <section>
+      <section id="connect-four-container">
         <h1 class="title">Connect Four</h1>
         <article class="text">
           <p>jQuery. Fun times. Try playing using the keyboard!</p>
@@ -839,7 +755,6 @@
             <span class="score1">0</span>:<span class="score2">0</span>
           </div>
         </div>
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="/connect-four/script.js"></script>
       </section>
       <hr />
@@ -1273,7 +1188,7 @@
     </div>
 
     <!-- Icons -->
-    <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+    <svg xmlns="http://www.w3.org/2000/svg">
       <symbol id="chevron" viewBox="0 0 80 100" fill="currentColor">
         <title>chevron</title>
         <path
