@@ -32,7 +32,7 @@ body {
   text-transform: lowercase;
 }
 footer {
-  margin: 3rem 0;
+  margin: 3rem 0 1rem 0;
 }
 
 hr {
@@ -130,19 +130,23 @@ kbd {
   color: var(--muted-color);
   margin: 1rem 0;
 }
-.external-link {
+.link {
+  display: block;
   color: var(--muted-color);
   font-style: italic;
   margin-top: 0.5rem;
 }
-.external-link:first-of-type {
+.link:first-of-type {
   margin-top: 0.8rem;
 }
-.external-link span[role="img"] {
+.link span[role="img"] {
   margin-right: 10px;
 }
-.external-link-text {
+.link-text {
   margin-right: 5px;
+}
+.link.legal {
+  margin-top: 2rem;
 }
 
 @media (min-width: 600px) {
@@ -155,4 +159,22 @@ kbd {
     position: fixed;
     bottom: 0;
   }
+}
+
+#legal {
+  padding-top: 2rem;
+}
+#legal h1 {
+  margin: 1rem 0 1.5rem 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+#legal h2,
+#legal span,
+#legal p {
+  margin: 1rem 0;
+}
+#legal h2 {
+  font-size: 1rem;
+  font-weight: 600;
 }
