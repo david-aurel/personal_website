@@ -150,7 +150,9 @@ kbd {
 .link-text {
   margin-right: 5px;
 }
-.link.legal {
+.link-legal {
+  display: block;
+  color: var(--muted-color);
   margin-top: 2rem;
 }
 
