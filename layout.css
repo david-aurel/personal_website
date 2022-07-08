@@ -89,9 +89,24 @@ h1 {
   font-weight: 500;
   margin: 1rem 0 1.5rem 0;
 }
-h1 span[role="img"] {
-  font-size: 3rem;
-  font-size: clamp(25px, 10vw, 3.5rem);
+.hero {
+  font-size: 5.6rem;
+  font-size: clamp(60px, 13vw, 5.6rem);
+  line-height: 4rem;
+  font-family: Kooltura;
+  margin: 1rem 0 2rem 0;
+}
+@media (min-width: 600px) {
+  .hero {
+    margin: 1rem 0 4rem 0;
+  }
+}
+.hero > span {
+  display: inline-block;
+}
+.hero span[role="img"] {
+  font-size: 4.8rem;
+  font-size: clamp(45px, 11vw, 4.4rem);
 }
 h2 {
   font-size: 1.5rem;
