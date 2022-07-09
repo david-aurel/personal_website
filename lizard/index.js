@@ -1,6 +1,20 @@
 /* DOM references */
 var lizardImg = document.getElementById("lizard-head");
 var lizardImgRadius = lizardImg.offsetWidth / 2;
+var lizardBodyImg = document.getElementById("lizard-body");
+var lizardFallback = document.getElementById("lizard-fallback");
+
+function deactivateFallback() {
+  /* mouse, touchpad ... */
+  if (window.matchMedia("(hover:hover) and (pointer:fine)").matches) {
+    lizardFallback.style.display = "none";
+    lizardBodyImg.style.display = "inline-block";
+    lizardImg.style.display = "inline-block";
+  } else {
+    return;
+  }
+}
+deactivateFallback();
 
 /* updates the DOM */
 function update(updateParams) {

@@ -112,11 +112,16 @@ h1 {
   position: relative;
   margin-left: 2rem;
 }
+#lizard-fallback {
+  font-size: 5rem;
+}
 #lizard-body {
+  display: none;
   width: 80px;
   height: 70px;
 }
 #lizard-head {
+  display: none;
   position: absolute;
   bottom: 33px;
   left: -6px;
