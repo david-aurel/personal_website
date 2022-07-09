@@ -21,7 +21,7 @@ html {
   font-family: "Roboto", sans-serif;
 }
 body {
-  max-width: 650px;
+  max-width: 700px;
   margin: 0 auto;
   padding: 0 20px;
   background-color: var(--background-color);
@@ -90,23 +90,41 @@ h1 {
   margin: 1rem 0 1.5rem 0;
 }
 .hero {
-  font-size: 5.6rem;
-  font-size: clamp(60px, 13vw, 5.6rem);
-  line-height: 4rem;
+  font-size: 6rem;
+  font-size: clamp(70px, 15vw, 6rem);
+  line-height: clamp(60px, 15vw, 6rem);
   font-family: Kooltura;
   margin: 1rem 0 2rem 0;
 }
 @media (min-width: 600px) {
   .hero {
     margin: 1rem 0 4rem 0;
+    line-height: 6rem;
   }
 }
 .hero > span {
-  display: inline-block;
+  display: inline-flex;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 1.6rem;
 }
 .hero span[role="img"] {
-  font-size: 4.8rem;
-  font-size: clamp(45px, 11vw, 4.4rem);
+  position: relative;
+  margin-left: 2rem;
+}
+#lizard-body {
+  width: 80px;
+  height: 70px;
+}
+#lizard-head {
+  position: absolute;
+  bottom: 33px;
+  left: -6px;
+  width: 18px;
+  height: 36px;
+  transform-origin: 50% 80%;
+  transform: rotate(260deg) scaleX(-1);
+  transition: transform 0.5s;
 }
 h2 {
   font-size: 1.5rem;
