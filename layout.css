@@ -118,15 +118,15 @@ h1 {
 #lizard-body {
   display: none;
   width: 80px;
-  height: 70px;
+  height: 72px;
 }
 #lizard-head {
   display: none;
   position: absolute;
   bottom: 33px;
   left: -6px;
-  width: 18px;
-  height: 36px;
+  width: 22px;
+  height: 35px;
   transform-origin: 50% 80%;
   transform: rotate(260deg) scaleX(-1);
   transition: transform 0.5s;
