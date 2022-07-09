@@ -32,11 +32,14 @@ window.onload = () => {
       p2: cursorLocation,
       p1: closestPointFromLizardCircumferenceToCursor
     });
-    var isFacingLeft = angleToCursor > 180;
-    var cantTurnNeckAnyMore = angleToCursor > 350 || angleToCursor < 20;
+    var isFacingLeft = angleToCursor > 235;
+    var cantTurnNeckAnyMore = angleToCursor > 350 || angleToCursor < 120;
     if (cantTurnNeckAnyMore) return;
     lizardImg.style.transform =
-      "rotate(" + angleToCursor + "deg) " + (isFacingLeft ? "scaleX(-1)" : "");
+      "rotate(" +
+      angleToCursor +
+      "deg) " +
+      (isFacingLeft ? "scaleX(1)" : "scaleX(-1)");
   }
 
   /* gets closest point to cursor on lizard head circumference */

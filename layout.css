@@ -91,8 +91,8 @@ h1 {
 }
 .hero {
   font-size: 6rem;
-  font-size: clamp(70px, 15vw, 6rem);
-  line-height: clamp(60px, 15vw, 6rem);
+  font-size: clamp(70px, 13vw, 6rem);
+  line-height: clamp(60px, 11vw, 6rem);
   font-family: Kooltura;
   margin: 1rem 0 2rem 0;
 }
@@ -110,7 +110,8 @@ h1 {
 }
 .hero span[role="img"] {
   position: relative;
-  margin-left: 2rem;
+  margin-left: 1.5rem;
+  display: inline-block;
 }
 #lizard-fallback {
   font-size: 5rem;
@@ -118,18 +119,20 @@ h1 {
 #lizard-body {
   display: none;
   width: 80px;
-  height: 72px;
+  height: 80px;
+  transform: rotate(300deg) scaleX(-1);
+  transition: transform 0.2s;
 }
 #lizard-head {
   display: none;
   position: absolute;
-  bottom: 33px;
-  left: -6px;
-  width: 22px;
-  height: 35px;
-  transform-origin: 50% 80%;
-  transform: rotate(260deg) scaleX(-1);
-  transition: transform 0.5s;
+  bottom: 54px;
+  left: -1px;
+  width: 30px;
+  height: 30px;
+  transform-origin: 50% 86%;
+  transform: rotate(211deg) scaleX(-1);
+  transition: transform 0.25s;
 }
 h2 {
   font-size: 1.5rem;
