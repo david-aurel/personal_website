@@ -1,0 +1,20 @@
+#lizard-container {
+  position: relative;
+  margin-left: 1.5rem;
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  transform: rotate(300deg);
+}
+#lizard-body {
+  transform: scaleX(-1);
+  transition: transform 0.2s;
+}
+#lizard-head {
+  position: absolute;
+  top: -10px;
+  left: 12px;
+  transform-origin: 50% 86%;
+  transform: rotate(300deg) scaleX(-1);
+  transition: transform 0.25s;
+}

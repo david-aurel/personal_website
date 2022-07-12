@@ -39,7 +39,7 @@ hr {
   border-radius: 2px;
   background: var(--muted-color);
 }
-img {
+#projects img {
   width: 100%;
 }
 
@@ -107,32 +107,6 @@ h1 {
   align-items: start;
   flex-wrap: wrap;
   gap: 1.6rem;
-}
-.hero span[role="img"] {
-  position: relative;
-  margin-left: 1.5rem;
-  display: inline-block;
-}
-#lizard-fallback {
-  font-size: 5rem;
-}
-#lizard-body {
-  display: none;
-  width: 80px;
-  height: 80px;
-  transform: rotate(300deg) scaleX(-1);
-  transition: transform 0.2s;
-}
-#lizard-head {
-  display: none;
-  position: absolute;
-  bottom: 54px;
-  left: -1px;
-  width: 30px;
-  height: 30px;
-  transform-origin: 50% 86%;
-  transform: rotate(211deg) scaleX(-1);
-  transition: transform 0.25s;
 }
 h2 {
   font-size: 1.5rem;
