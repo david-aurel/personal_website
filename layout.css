@@ -91,15 +91,14 @@ h1 {
 }
 .hero {
   font-size: 6rem;
-  font-size: clamp(70px, 13vw, 6rem);
+  font-size: clamp(60px, 13vw, 6rem);
   line-height: clamp(60px, 11vw, 6rem);
   font-family: Kooltura;
-  margin: 1rem 0 2rem 0;
+  margin: 1rem 0;
 }
 @media (min-width: 600px) {
   .hero {
-    margin: 1rem 0 4rem 0;
-    line-height: 6rem;
+    margin: 1rem 0 3rem 0;
   }
 }
 .hero > span {
