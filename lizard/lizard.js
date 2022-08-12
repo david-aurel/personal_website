@@ -1,3 +1,80 @@
+var lizardDesktopRotation = -90;
+var lizardMobileRotation = 60;
+
+window.onload = () => {
+  var isLargeScreen = window.matchMedia("(min-width: 543px)");
+  var lizard = {
+    headImg: document.getElementById("lizard-head"),
+    bodyImg: document.getElementById("lizard-body"),
+    headLocation: document.getElementById("lizard-head-location"),
+    offsetRotation: isLargeScreen.matches
+      ? lizardDesktopRotation
+      : lizardMobileRotation
+  };
+  isLargeScreen.onchange = (largeScreen) => {
+    var newRotation = largeScreen.matches
+      ? lizardDesktopRotation
+      : lizardMobileRotation;
+    lizard.offsetRotation = newRotation;
+    console.log();
+  };
+
+  window.addEventListener("mousemove", function (event) {
+    throttled(() => update({ event, lizard }));
+  });
+  window.addEventListener("touchstart", function (event) {
+    update({ event, lizard });
+  });
+  window.addEventListener("touchmove", function (event) {
+    throttled(() => update({ event, lizard }));
+  });
+};
+
+/* updates the DOM */
+function update(triggerUpdateParameters) {
+  var event = triggerUpdateParameters.event;
+  var lizard = triggerUpdateParameters.lizard;
+
+  var cursorLocation =
+    event.touches !== undefined
+      ? { x: event.touches[0].clientX, y: event.touches[0].clientY }
+      : {
+          x: event.clientX,
+          y: event.clientY
+        };
+  var lizardBoundingClientRect = lizard.headLocation.getBoundingClientRect();
+  var lizardLocation = {
+    x: lizardBoundingClientRect.left,
+    y: lizardBoundingClientRect.top
+  };
+
+  /* by "shifting" the point between 0deg and 360deg to the back of the
+  lizard, we maintain a smooth css transform animation */
+  var distributedOffsetRotation =
+    lizard.offsetRotation > 180
+      ? lizard.offsetRotation - 360
+      : lizard.offsetRotation;
+
+  var angleToCursor =
+    getAngleFromPoints({
+      p2: cursorLocation,
+      p1: lizardLocation
+    }) - distributedOffsetRotation;
+
+  var distributedAngle =
+    angleToCursor > 180 ? angleToCursor - 360 : angleToCursor;
+
+  var isFacingLeft = distributedAngle < 0;
+  var cantTurnNeckAnyMore = distributedAngle > 170 || distributedAngle < -140;
+  if (cantTurnNeckAnyMore) return;
+
+  lizard.headImg.style.transform =
+    "rotate(" +
+    distributedAngle +
+    "deg) " +
+    (isFacingLeft ? "scaleX(-1)" : "scaleX(1)");
+}
+
 /* calculates the angle between lizard head and cursor */
 function getAngleFromPoints(getAngleFromPointsParameters) {
   var p1 = getAngleFromPointsParameters.p1;
@@ -8,42 +85,8 @@ function getAngleFromPoints(getAngleFromPointsParameters) {
   var unsigned = rotated < 0 ? rotated + 360 : rotated;
   return Math.round(unsigned);
 }
-/* updates the DOM */
-function update(triggerUpdateParameters) {
-  var event = triggerUpdateParameters.event;
-  var lizardHeadImg = triggerUpdateParameters.lizardHeadImg;
-  var lizardBodyImg = triggerUpdateParameters.lizardBodyImg;
-  var lizardBodyRotation = triggerUpdateParameters.lizardBodyRotation;
 
-  var cursorLocation =
-    event.touches !== undefined
-      ? { x: event.touches[0].clientX, y: event.touches[0].clientY }
-      : {
-          x: event.clientX,
-          y: event.clientY
-        };
-  var lizardBoundingClientRect = lizardBodyImg.getBoundingClientRect();
-  var lizardLocation = {
-    x: lizardBoundingClientRect.left + lizardBoundingClientRect.width / 4,
-    y: lizardBoundingClientRect.top + lizardBoundingClientRect.height / 2
-  };
-
-  var angleToCursor = getAngleFromPoints({
-    p2: cursorLocation,
-    p1: lizardLocation
-  });
-  var lizardHeadRotationRelativeToPage = lizardBodyRotation + angleToCursor;
-  var isFacingLeft = angleToCursor > 235;
-  var cantTurnNeckAnyMore = angleToCursor > 350 || angleToCursor < 120;
-  if (cantTurnNeckAnyMore) return;
-
-  lizardHeadImg.style.transform =
-    "rotate(" +
-    lizardHeadRotationRelativeToPage +
-    "deg) " +
-    (isFacingLeft ? "scaleX(1)" : "scaleX(-1)");
-}
-
+/* Throttle callback */
 var fps = 12; // how many times to fire the event per second
 var wait = false;
 function throttled(callback) {
@@ -55,25 +98,3 @@ function throttled(callback) {
     }, 1000 / fps);
   }
 }
-
-window.onload = () => {
-  /* DOM references */
-  var lizardHeadImg = document.getElementById("lizard-head");
-  var lizardBodyImg = document.getElementById("lizard-body");
-
-  var lizardBodyRotation = 60;
-
-  window.addEventListener("mousemove", function (event) {
-    throttled(() =>
-      update({ event, lizardHeadImg, lizardBodyImg, lizardBodyRotation })
-    );
-  });
-  window.addEventListener("touchstart", function (event) {
-    udpate({ event, lizardHeadImg, lizardBodyImg, lizardBodyRotation });
-  });
-  window.addEventListener("touchmove", function (event) {
-    throttled(() =>
-      update({ event, lizardHeadImg, lizardBodyImg, lizardBodyRotation })
-    );
-  });
-};

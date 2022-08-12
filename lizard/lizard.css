@@ -4,17 +4,31 @@
   display: inline-block;
   width: 80px;
   height: 80px;
-  transform: rotate(300deg);
+  transition: transform 0.2s;
+  transform: rotate(60deg) translate(-15%, 30%);
 }
 #lizard-body {
   transform: scaleX(-1);
   transition: transform 0.2s;
 }
+#lizard-head-location {
+  position: absolute;
+  top: 0;
+  left: 50%;
+}
 #lizard-head {
   position: absolute;
-  top: -10px;
-  left: 12px;
+  top: -22px;
+  left: 27px;
   transform-origin: 50% 86%;
-  transform: rotate(300deg) scaleX(-1);
+  transform: rotate(35deg);
   transition: transform 0.25s;
+}
+@media (min-width: 543px) {
+  #lizard-container {
+    transform: rotate(-90deg);
+  }
+  #lizard-head {
+    transform: rotate(-30deg) scaleX(-1);
+  }
 }
