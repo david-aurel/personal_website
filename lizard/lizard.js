@@ -36,26 +36,44 @@ window.onload = () => {
     return Math.round(unsigned);
   }
 
+  function triggerUpdate(event) {
+    var cursorLocation =
+      event.touches !== undefined
+        ? { x: event.touches[0].clientX, y: event.touches[0].clientY }
+        : {
+            x: event.clientX,
+            y: event.clientY
+          };
+    var lizardBoundingClientRect = lizardBodyImg.getBoundingClientRect();
+    var lizardLocation = {
+      x: lizardBoundingClientRect.left + lizardBoundingClientRect.width / 4,
+      y: lizardBoundingClientRect.top + lizardBoundingClientRect.height / 2
+    };
+    update({
+      cursorLocation,
+      lizardLocation: lizardLocation
+    });
+  }
+
   var fps = 12; // how many times to fire the event per second
   var wait = false;
-  window.addEventListener("mousemove", function (e) {
+  function throttled(callback) {
     if (!wait) {
-      /* throttled */
-      var cursorLocation = { x: e.clientX, y: e.clientY };
-      var lizardBoundingClientRect = lizardBodyImg.getBoundingClientRect();
-      var lizardLocation = {
-        x: lizardBoundingClientRect.left + lizardBoundingClientRect.width / 4,
-        y: lizardBoundingClientRect.top + lizardBoundingClientRect.height / 2
-      };
-      update({
-        cursorLocation: cursorLocation,
-        lizardLocation: lizardLocation
-      });
-      /* -------- */
+      callback();
       wait = true;
       setTimeout(function () {
         wait = false;
       }, 1000 / fps);
     }
+  }
+
+  window.addEventListener("mousemove", function (event) {
+    throttled(() => triggerUpdate(event));
+  });
+  window.addEventListener("touchstart", function (event) {
+    triggerUpdate(event);
+  });
+  window.addEventListener("touchmove", function (event) {
+    throttled(() => triggerUpdate(event));
   });
 };
