@@ -1,5 +1,5 @@
 /* hide all pages */
-body > * {
+body > *:not(.chrome) {
   display: none;
 }
 /* except the default for the  '/' path) */

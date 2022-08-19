@@ -1,22 +1,11 @@
-var lizardDesktopRotation = -90;
-var lizardMobileRotation = 60;
+var lizardRotation = -90;
 
 window.onload = () => {
-  var isLargeScreen = window.matchMedia("(min-width: 543px)");
   var lizard = {
     headImg: document.getElementById("lizard-head"),
     bodyImg: document.getElementById("lizard-body"),
     headLocation: document.getElementById("lizard-head-location"),
-    offsetRotation: isLargeScreen.matches
-      ? lizardDesktopRotation
-      : lizardMobileRotation
-  };
-  isLargeScreen.onchange = (largeScreen) => {
-    var newRotation = largeScreen.matches
-      ? lizardDesktopRotation
-      : lizardMobileRotation;
-    lizard.offsetRotation = newRotation;
-    console.log();
+    offsetRotation: lizardRotation
   };
 
   window.addEventListener("mousemove", function (event) {
