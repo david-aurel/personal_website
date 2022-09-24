@@ -29,6 +29,7 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
   text-transform: lowercase;
+  word-break: break-word;
 }
 .outer-page {
   overflow: scroll;
