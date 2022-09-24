@@ -1,37 +1,5 @@
-button:active,
-a:active {
+button:active {
   transform: translateY(0.2rem);
-}
-
-.nav-link {
-  display: inline-flex;
-  position: relative;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 1.5rem;
-  color: var(--primary-color);
-  text-decoration: none;
-  padding: 10px 0;
-  outline-offset: 8px;
-}
-.nav-link > svg {
-  margin-left: 10px;
-}
-
-.nav-link.nav-link-back > svg {
-  margin-left: initial;
-  margin-right: 10px;
-  transform: rotate(180deg);
-}
-.nav-link:after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  width: 0;
-  height: 2px;
-  background: var(--primary-color);
-  transition: width 0.3s;
-  border-radius: 2px;
 }
 
 .copy-button {
@@ -51,22 +19,4 @@ a:active {
 }
 .copy-button.success svg:nth-child(1) {
   display: none;
-}
-
-/* smartphones, touchscreens */
-@media (hover: none) and (pointer: coarse) {
-  .nav-link:after {
-    width: 100%;
-  }
-}
-.nav-link:after {
-  left: 0;
-}
-.nav-link.nav-link-back:after {
-  left: inherit;
-  right: 0;
-}
-.nav-link:hover:after,
-.nav-link:focus:after {
-  width: 100%;
 }
