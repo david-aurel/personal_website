@@ -172,6 +172,47 @@ kbd {
 }
 
 /* about me */
+#about-me img {
+  clip-path: url("#about-me-clip-path");
+  width: 100%;
+  height: auto;
+  float: left;
+}
+@media (min-width: 350px) {
+  #about-me img {
+    height: 200px;
+    width: 175px;
+    margin-right: 1.5rem;
+    shape-outside: circle(53%);
+  }
+}
+#about-me #about-me-outer-container {
+  position: relative;
+}
+#about-me #about-me-outer-container svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#about-me-values-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.3rem;
+}
+#about-me-values-container > * {
+  min-width: min-content;
+}
+#about-me-values-container h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+@media (min-width: 400px) {
+  #about-me-values-container > * {
+    max-width: calc(50% - 1.3rem);
+    min-width: min-content;
+  }
+}
 #about-me .clipped {
   width: 100px;
   height: 350px;
