@@ -113,6 +113,9 @@ kbd {
 .italic {
   font-style: italic;
 }
+.bold {
+  font-weight: 600;
+}
 .link {
   color: var(--muted-color);
   text-decoration: underline;
@@ -172,11 +175,16 @@ kbd {
 }
 
 /* about me */
+#about-me .inner-page {
+  padding-bottom: 1.5rem;
+}
+
 #about-me img {
   clip-path: url("#about-me-clip-path");
   width: 100%;
   height: auto;
   float: left;
+  margin-bottom: 1.5rem;
 }
 @media (min-width: 350px) {
   #about-me img {
@@ -188,6 +196,7 @@ kbd {
 }
 #about-me #about-me-outer-container {
   position: relative;
+  margin-bottom: 3rem;
 }
 #about-me #about-me-outer-container svg {
   position: absolute;
@@ -213,6 +222,72 @@ kbd {
     min-width: min-content;
   }
 }
+#about-me #about-me-experiences-container > *:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+#about-me #about-me-experiences-container li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+#about-me #about-me-experiences-container li > * {
+  position: relative;
+  padding-left: 3rem;
+}
+#about-me #about-me-experiences-container li:not(:last-of-type) > *:last-child {
+  padding-bottom: 1.5rem;
+}
+#about-me #about-me-experiences-container li > *:first-child:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 0.5rem;
+  width: 0.5rem;
+  background-color: var(--muted-color);
+  opacity: 0.5;
+  border-radius: 50%;
+}
+#about-me
+  #about-me-experiences-container
+  li:not(:last-of-type)
+  > *:not(:first-child):before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0.2rem;
+  height: 100%;
+  width: 0.1rem;
+  background-color: var(--muted-color);
+  opacity: 0.5;
+}
+#about-me
+  #about-me-experiences-container
+  li:not(:last-of-type)
+  > *:nth-child(2):before {
+  top: 0.75rem;
+  height: calc(100% - 0.75rem);
+}
+#about-me
+  #about-me-experiences-container
+  li:not(:last-of-type)
+  > *:last-child:before {
+  height: calc(100% - 0.75rem);
+}
+#about-me #about-me-experiences-container .about-me-experiences-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+#about-me #about-me-experiences-container .about-me-experiences-dates,
+#about-me #about-me-experiences-container .about-me-experiences-company {
+  padding-top: 0.2rem;
+  color: var(--muted-color);
+}
+#about-me #about-me-experiences-container .about-me-experiences-body {
+  padding-top: 0.75rem;
+}
+
 #about-me .clipped {
   width: 100px;
   height: 350px;
@@ -221,30 +296,30 @@ kbd {
   -webkit-clip-path: url(#my-clip-path);
   clip-path: url(#my-clip-path);
 }
-#about-me #external-links {
+#about-me #about-me-external-links {
   color: var(--muted-color);
 }
-#about-me #external-links h1 {
+#about-me #about-me-external-links h1 {
   font-family: sans-serif;
 }
-#about-me #external-links li {
+#about-me #about-me-external-links li {
   display: flex;
   margin-top: 0.5rem;
 }
-#about-me #external-links li:first-of-type {
+#about-me #about-me-external-links li:first-of-type {
   margin-top: 0.8rem;
 }
-#about-me #external-links li > span[role="img"] {
+#about-me #about-me-external-links li > span[role="img"] {
   margin-right: 10px;
 }
-#about-me #external-links li > span:last-of-type {
+#about-me #about-me-external-links li > span:last-of-type {
   display: inline-flex;
   flex-direction: column;
   word-break: break-word;
   margin-right: 5px;
 }
 @media (min-width: 480px) {
-  #about-me #external-links li > span:last-of-type {
+  #about-me #about-me-external-links li > span:last-of-type {
     flex-direction: row;
   }
 }
