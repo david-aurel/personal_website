@@ -1,5 +1,5 @@
-const email = document.querySelector("#email").text;
-const button = document.querySelector(".copy-button");
+var email = document.querySelector("#email").text;
+var button = document.querySelector(".copy-button");
 
 button.addEventListener("click", function () {
   navigator.clipboard
