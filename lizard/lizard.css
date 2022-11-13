@@ -1,42 +1,30 @@
-#liard-fallback {
-  display: none;
-}
-#lizard-outer-container {
-  width: fit-content;
-  position: absolute;
-  top: 110px;
-  left: 160px;
-  padding: 1rem;
-}
-#lizard-inner-container {
+#lizard-container {
   position: relative;
   width: 80px;
   height: 80px;
   transition: transform 0.2s;
+  transform: rotate(-90deg);
 }
-#lizard-body-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-#lizard-sprite {
-  display: none;
+#lizard-body {
+  transform: scaleX(-1);
+  transition: transform 0.2s;
 }
 #lizard-head-location {
   position: absolute;
-  top: 10%;
-  left: 53%;
-  /* width: 10px;
-  height: 10px;
-  background-color: blue; */
+  top: 0;
+  left: 50%;
 }
-
 #lizard-head {
-  display: none;
   position: absolute;
-  top: -21%;
-  left: 34%;
+  top: -22px;
+  left: 27px;
   transform-origin: 50% 86%;
   transform: rotate(-30deg) scaleX(-1);
   transition: transform 0.25s;
+}
+
+@media (min-width: 600px) {
+  #lizard-container {
+    transform: rotate(-90deg) scale(1.4) translate(5%, 15%);
+  }
 }
