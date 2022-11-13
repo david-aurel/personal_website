@@ -46,7 +46,17 @@ window.onload = function () {
       });
     },
     touchstart: function (event) {
-      rotateHead({ event, lizard });
+      throttled(function () {
+        rotateHead({ event, lizard });
+      });
+    },
+    touchend: function (event) {
+      walkToLocation({
+        event,
+        lizard,
+        lizardInitialLocation,
+        canvas
+      });
     },
     touchmove: function (event) {
       throttled(function () {
@@ -223,12 +233,24 @@ function walkToLocation(walkToLocationParameters) {
 }
 
 function getCursorLocation(event) {
-  return event.touches !== undefined
-    ? { x: event.touches[0].clientX, y: event.touches[0].clientY }
-    : {
+  switch (event.type) {
+    case "touchend": {
+      const lastTouch = event.changedTouches[event.changedTouches.length - 1];
+      return {
+        x: lastTouch.clientX,
+        y: lastTouch.clientY
+      };
+    }
+    case "touchmove": {
+      return { x: event.touches[0].clientX, y: event.touches[0].clientY };
+    }
+    default: {
+      return {
         x: event.clientX,
         y: event.clientY
       };
+    }
+  }
 }
 
 function getLocation(node) {
@@ -307,11 +329,13 @@ function addEventListeners(listeners) {
   window.addEventListener("click", listeners.click);
   window.addEventListener("mousemove", listeners.mouseMove);
   window.addEventListener("touchstart", listeners.touchstart);
+  window.addEventListener("touchend", listeners.touchend);
   window.addEventListener("touchmove", listeners.touchmove);
 }
 function removeEventListeners(listeners) {
   window.removeEventListener("click", listeners.click);
   window.removeEventListener("mousemove", listeners.mouseMove);
   window.removeEventListener("touchstart", listeners.touchstart);
+  window.removeEventListener("touchend", listeners.touchend);
   window.removeEventListener("touchmove", listeners.touchmove);
 }
