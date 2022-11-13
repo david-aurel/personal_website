@@ -1,41 +1,85 @@
-var lizardRotation = -90;
+var homePage = "#home";
+var lizardRotation = 0;
+var maxSpriteFrame = 19;
+var spriteWidth = 150;
+var spriteHeight = 220;
+var spriteColumns = 5;
+var movementSpeed = 2; /* lower number => faster */
+var walkingSpeed = 3; /* lower number => faster */
 
-window.onload = () => {
+window.onload = function () {
   var lizard = {
     headImg: document.getElementById("lizard-head"),
-    bodyImg: document.getElementById("lizard-body"),
     headLocation: document.getElementById("lizard-head-location"),
+    outerContainer: document.getElementById("lizard-outer-container"),
+    innerContainer: document.getElementById("lizard-inner-container"),
     offsetRotation: lizardRotation
   };
+  var canvasNode = document.getElementById("lizard-body-canvas");
+  var canvas = {
+    context: canvasNode.getContext("2d"),
+    width: canvasNode.width,
+    heigth: canvasNode.height,
+    sprite: document.getElementById("lizard-sprite"),
+    spriteHeight,
+    spriteWidth,
+    spriteColumns,
+    lizardHeadImg: lizard.headImg,
+    lizardFallbackImg: document.getElementById("lizard-fallback")
+  };
+  var lizardInitialLocation = getLocation(lizard.outerContainer);
 
-  window.addEventListener("mousemove", function (event) {
-    throttled(() => update({ event, lizard }));
-  });
-  window.addEventListener("touchstart", function (event) {
-    update({ event, lizard });
-  });
-  window.addEventListener("touchmove", function (event) {
-    throttled(() => update({ event, lizard }));
+  initiateCanvas(canvas);
+
+  var listeners = {
+    click: function (event) {
+      walkToLocation({
+        event,
+        lizard,
+        lizardInitialLocation,
+        canvas
+      });
+    },
+    mouseMove: function (event) {
+      throttled(function () {
+        rotateHead({ event, lizard });
+      });
+    },
+    touchstart: function (event) {
+      rotateHead({ event, lizard });
+    },
+    touchmove: function (event) {
+      throttled(function () {
+        rotateHead({ event, lizard });
+      });
+    }
+  };
+
+  /* only make the lizard interactive when on the home page*/
+  var eventListenersActive = false;
+  if (window.location.hash === homePage || window.location.hash === "") {
+    eventListenersActive = true;
+    addEventListeners(listeners);
+  }
+  window.addEventListener("hashchange", function () {
+    if (window.location.hash === homePage && !eventListenersActive) {
+      eventListenersActive = true;
+      addEventListeners(listeners);
+    }
+    if (window.location.hash !== homePage && eventListenersActive) {
+      eventListenersActive = false;
+      removeEventListeners(listeners);
+    }
   });
 };
 
 /* updates the DOM */
-function update(triggerUpdateParameters) {
+function rotateHead(triggerUpdateParameters) {
   var event = triggerUpdateParameters.event;
   var lizard = triggerUpdateParameters.lizard;
 
-  var cursorLocation =
-    event.touches !== undefined
-      ? { x: event.touches[0].clientX, y: event.touches[0].clientY }
-      : {
-          x: event.clientX,
-          y: event.clientY
-        };
-  var lizardBoundingClientRect = lizard.headLocation.getBoundingClientRect();
-  var lizardLocation = {
-    x: lizardBoundingClientRect.left,
-    y: lizardBoundingClientRect.top
-  };
+  var cursorLocation = getCursorLocation(event);
+  var lizardLocation = getLocation(lizard.headLocation);
 
   /* by "shifting" the point between 0deg and 360deg to the back of the
   lizard, we maintain a smooth css transform animation */
@@ -64,7 +108,138 @@ function update(triggerUpdateParameters) {
     (isFacingLeft ? "scaleX(-1)" : "scaleX(1)");
 }
 
-/* calculates the angle between lizard head and cursor */
+var timeOutId;
+var intervalId;
+var frame = 0;
+/* Updates the DOM */
+function walkToLocation(walkToLocationParameters) {
+  var event = walkToLocationParameters.event;
+  var lizard = walkToLocationParameters.lizard;
+  var lizardInitialLocation = walkToLocationParameters.lizardInitialLocation;
+  var canvas = walkToLocationParameters.canvas;
+
+  var cursorLocation = getCursorLocation(event);
+  var lizardLocation = getLocation(lizard.headLocation);
+
+  var angleToCursor = getAngleFromPoints({
+    p2: cursorLocation,
+    p1: lizardLocation
+  });
+
+  /* Given an angle, calculates how much to offset the rectangle
+    that represents the lizard so that it always seem to travels
+    the least distance.
+    This is what happens when you suck at math
+  */
+  var offsetWidth = 0;
+  var offsetHeight = 0;
+  var lizardWidth = lizard.outerContainer.offsetWidth;
+  var lizardHeight = lizard.outerContainer.offsetHeight;
+  if (angleToCursor > 315 && angleToCursor < 360) {
+    /* cursor is on top/left of lizard */
+    var normalizeValue = 315;
+    var normalized = angleToCursor - normalizeValue;
+    offsetWidth = (lizardWidth / 2) * (normalized / 45);
+    offsetHeight = 0;
+  } else if (angleToCursor < 45) {
+    /* cursor is on top/right of lizard */
+    offsetWidth = (lizardWidth / 2) * (angleToCursor / 45) + lizardWidth / 2;
+    offsetHeight = 0;
+  } else if (angleToCursor > 45 && angleToCursor < 135) {
+    /* cursor is right to lizard */
+    var normalizeValue = 45;
+    var normalized = angleToCursor - normalizeValue;
+    offsetWidth = lizardWidth;
+    offsetHeight = lizardHeight * (normalized / 90);
+  } else if (angleToCursor > 135 && angleToCursor < 225) {
+    /* cursor is below lizard */
+    var normalizeValue = 135;
+    var normalized = angleToCursor - normalizeValue;
+    offsetWidth = lizardHeight * (1 - normalized / 90);
+    offsetHeight = lizardHeight;
+  } else if (angleToCursor > 225 && angleToCursor < 315) {
+    /* cursor is left to lizard */
+    var normalizeValue = 225;
+    var normalized = angleToCursor - normalizeValue;
+    offsetWidth = 0;
+    offsetHeight = lizardHeight * (1 - normalized / 90);
+  }
+
+  lizard.outerContainer.style.transform =
+    "translate(" +
+    Math.round(
+      cursorLocation.x -
+        lizardLocation.x +
+        lizardLocation.x -
+        lizardInitialLocation.x -
+        offsetWidth
+    ) +
+    "px" +
+    ", " +
+    Math.round(
+      cursorLocation.y -
+        lizardLocation.y +
+        lizardLocation.y -
+        lizardInitialLocation.y -
+        offsetHeight
+    ) +
+    "px)";
+
+  var distance = Math.hypot(
+    lizardLocation.x - cursorLocation.x,
+    lizardLocation.y - cursorLocation.y
+  );
+  const transitionTime = distance * walkingSpeed;
+  lizard.outerContainer.style.transition =
+    "transform " + transitionTime + "ms linear";
+
+  /* if the lizard is already walking, cancel the timeout
+    that would stop the walking */
+  if (timeOutId) {
+    clearTimeout(timeOutId);
+    clearInterval(intervalId);
+  }
+  intervalId = setInterval(() => {
+    frame++;
+    if (frame === maxSpriteFrame) frame = 0;
+    walkingAnimationFrame(canvas);
+  }, movementSpeed * 10);
+
+  timeOutId = setTimeout(function () {
+    clearInterval(intervalId);
+  }, transitionTime);
+
+  var transformStyle = lizard.innerContainer.style.transform;
+  var currentRotation = transformStyle
+    ? parseInt(transformStyle.match(/(\d+)/gi))
+    : 0;
+
+  var differenceRaw = ((angleToCursor - currentRotation + 180) % 360) - 180;
+  var difference = differenceRaw < -180 ? differenceRaw + 360 : differenceRaw;
+  lizard.innerContainer.style.transform =
+    "rotate(" + (currentRotation + difference) + "deg)";
+  lizard.offsetRotation = angleToCursor;
+  rotateHead({ event, lizard });
+}
+
+function getCursorLocation(event) {
+  return event.touches !== undefined
+    ? { x: event.touches[0].clientX, y: event.touches[0].clientY }
+    : {
+        x: event.clientX,
+        y: event.clientY
+      };
+}
+
+function getLocation(node) {
+  var nodeClientRect = node.getBoundingClientRect();
+  return {
+    x: nodeClientRect.left,
+    y: nodeClientRect.top
+  };
+}
+
+/* calculates the angle between lizard and cursor */
 function getAngleFromPoints(getAngleFromPointsParameters) {
   var p1 = getAngleFromPointsParameters.p1;
   var p2 = getAngleFromPointsParameters.p2;
@@ -86,4 +261,57 @@ function throttled(callback) {
       wait = false;
     }, 1000 / fps);
   }
+}
+
+function initiateCanvas(canvas) {
+  if (!canvas.context) return;
+
+  canvas.lizardHeadImg.style.display = "initial";
+
+  canvas.lizardFallbackImg.style.display = "none";
+
+  canvas.context.drawImage(
+    canvas.sprite,
+    0,
+    0,
+    canvas.spriteWidth,
+    canvas.spriteHeight,
+    0,
+    0,
+    canvas.width,
+    canvas.heigth
+  );
+}
+
+function walkingAnimationFrame(canvas) {
+  if (!canvas.context) return;
+
+  let column = frame % canvas.spriteColumns;
+  let row = Math.floor(frame / canvas.spriteColumns);
+
+  canvas.context.clearRect(0, 0, canvas.width, canvas.heigth);
+  canvas.context.drawImage(
+    canvas.sprite,
+    column * canvas.spriteWidth,
+    row * canvas.spriteHeight,
+    canvas.spriteWidth,
+    canvas.spriteHeight,
+    0,
+    0,
+    canvas.width,
+    canvas.heigth
+  );
+}
+
+function addEventListeners(listeners) {
+  window.addEventListener("click", listeners.click);
+  window.addEventListener("mousemove", listeners.mouseMove);
+  window.addEventListener("touchstart", listeners.touchstart);
+  window.addEventListener("touchmove", listeners.touchmove);
+}
+function removeEventListeners(listeners) {
+  window.removeEventListener("click", listeners.click);
+  window.removeEventListener("mousemove", listeners.mouseMove);
+  window.removeEventListener("touchstart", listeners.touchstart);
+  window.removeEventListener("touchmove", listeners.touchmove);
 }
