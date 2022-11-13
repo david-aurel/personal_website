@@ -1250,25 +1250,33 @@
     <!-- main page -->
     <main id="home" class="outer-page">
       <div class="inner-page">
-        <div id="lizard-container" role="img" aria-label="lizard">
-          <img
-            id="lizard-body"
-            src="/lizard/lizard-body.webp"
-            width="80"
-            height="80"
-            alt=""
-          />
-          <span id="lizard-head-location"></span>
-          <img
-            id="lizard-head"
-            src="/lizard/lizard-head.webp"
-            width="30"
-            height="30"
-            alt=""
-          />
+        <div id="lizard-outer-container">
+          <div id="lizard-inner-container" role="img" aria-label="lizard">
+            <img
+              id="lizard-fallback"
+              src="/lizard/fallback.webp"
+              alt=""
+              width="100"
+              height="100"
+            />
+            <canvas id="lizard-body-canvas" width="90" height="132"></canvas>
+            <span id="lizard-head-location"></span>
+            <img
+              id="lizard-head"
+              src="/lizard/lizard-head.webp"
+              width="38"
+              height="38"
+              alt=""
+            />
+          </div>
         </div>
-        <h1 class="hero">David Durlan</h1>
-        <p class="hero-subtitle">Software Engineer</p>
+        <img
+          id="lizard-sprite"
+          src="/lizard/lizard-sprite.webp"
+          alt=""
+          width="750"
+          height="880"
+        />
       </div>
       <footer>
         <a href="#legal" class="link">Legal</a>
