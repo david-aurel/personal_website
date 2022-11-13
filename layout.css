@@ -146,6 +146,13 @@ kbd {
   justify-content: space-between;
   overflow: initial;
 }
+#home .inner-page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20vh;
+}
 
 #home footer {
   width: 100%;

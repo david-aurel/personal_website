@@ -3,9 +3,6 @@
 }
 #lizard-outer-container {
   width: fit-content;
-  position: absolute;
-  top: 110px;
-  left: 160px;
   padding: 1rem;
 }
 #lizard-inner-container {
