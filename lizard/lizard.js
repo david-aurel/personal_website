@@ -8,33 +8,23 @@ var spriteColumns = 5;
 var movementSpeed = 2; /* lower number => faster */
 var walkingSpeed = 3; /* lower number => faster */
 
-window.onload = function () {
-  var page = document.querySelector(lizardPage)
-  var lizardButton = document.getElementById("lizard-button")
-  var lizard = {
+function getPage() { return document.querySelector(lizardPage) }
+function getLizard() {
+  return {
     headImg: document.getElementById("lizard-head"),
     headLocation: document.getElementById("lizard-head-location"),
     outerContainer: document.getElementById("lizard-outer-container"),
     innerContainer: document.getElementById("lizard-inner-container"),
-    offsetRotation: lizardRotation
+    offsetRotation: lizardRotation,
+    button: document.getElementById("lizard-button")
   };
-  var canvasNode = document.getElementById("lizard-body-canvas");
-  var canvas = {
-    context: canvasNode.getContext("2d"),
-    width: canvasNode.width,
-    heigth: canvasNode.height,
-    sprite: document.getElementById("lizard-sprite"),
-    spriteHeight,
-    spriteWidth,
-    spriteColumns,
-    lizardHeadImg: lizard.headImg,
-    lizardFallbackImg: document.getElementById("lizard-fallback")
-  };
+}
+
+function getListeners(canvas) {
+  var lizard = getLizard()
+  var page = getPage()
   var lizardInitialLocation = getLocation(lizard.outerContainer, page);
-
-  initiateCanvas(canvas);
-
-  var listeners = {
+  return {
     click: function (event) {
       walkToLocation({
         event,
@@ -69,26 +59,50 @@ window.onload = function () {
       });
     },
     lizardButton: {
-      element: lizardButton,
+      element: lizard.button,
       click: function () {
         lizardIsActive = !lizardIsActive
-        lizardButton.innerHTML = lizardIsActive ? "turn lizard off" : "turn lizard on"
+        lizard.button.innerHTML = lizardIsActive ? "turn lizard off" : "turn lizard on"
       }
     }
+  }
+}
+
+window.onload = function () {
+  var page = getPage()
+  var lizard = getLizard()
+  var canvasNode = document.getElementById("lizard-body-canvas");
+  var canvas = {
+    context: canvasNode.getContext("2d"),
+    width: canvasNode.width,
+    heigth: canvasNode.height,
+    sprite: document.getElementById("lizard-sprite"),
+    spriteHeight,
+    spriteWidth,
+    spriteColumns,
+    lizardHeadImg: lizard.headImg,
+    lizardFallbackImg: document.getElementById("lizard-fallback")
   };
+
+
+  initiateCanvas(canvas);
+
+  var listeners = getListeners(canvas)
 
   /* only make the lizard interactive when on the lizard page*/
   var eventListenersActive = false;
-  if (window.location.hash === lizardPage || window.location.hash === "") {
+  if (window.location.hash === lizardPage) {
     eventListenersActive = true;
     addEventListeners(listeners);
   }
   window.addEventListener("hashchange", function () {
     if (window.location.hash === lizardPage && !eventListenersActive) {
       eventListenersActive = true;
+      listeners = getListeners(canvas)
       addEventListeners(listeners);
     }
     if (window.location.hash !== lizardPage && eventListenersActive) {
+      resetLizard(lizard)
       eventListenersActive = false;
       removeEventListeners(listeners);
     }
@@ -355,4 +369,10 @@ function removeEventListeners(listeners) {
   window.removeEventListener("touchend", listeners.touchend);
   window.removeEventListener("touchmove", listeners.touchmove);
   listeners.lizardButton.element.removeEventListener("click", listeners.lizardButton.click)
+}
+
+function resetLizard(lizard) {
+  lizardIsActive = false
+  lizard.outerContainer.style = ""
+  lizard.button.innerHTML = "toggle lizard on"
 }
