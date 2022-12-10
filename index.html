@@ -23,13 +23,13 @@
     />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/reset.css" />
     <link rel="stylesheet" href="/routing.css" />
-    <link rel="stylesheet" href="/layout.css" />
+    <link rel="stylesheet" href="/reset.css" />
     <link rel="stylesheet" href="/lizard/lizard.css" />
     <link rel="stylesheet" href="/interactive.css" />
     <link rel="stylesheet" href="illustration/styles.css" />
     <link rel="stylesheet" href="connect-four/styles.css" />
+    <link rel="stylesheet" href="/layout.css" />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -63,234 +63,71 @@
 
     <nav class="chrome">
       <ul>
-        <li><a href="#home" class="link">home</a></li>
         <li><a href="#about-me" class="link">about me</a></li>
         <li><a href="#projects" class="link">projects</a></li>
+        <li><a href="#legal" class="link">legal</a></li>
       </ul>
     </nav>
-
-    <!-- about me page -->
-    <main id="about-me" class="outer-page">
-      <div class="inner-page">
-        <h1>About me</h1>
-
-        <div id="about-me-outer-container">
-          <img
-            src="/about-me/david.webp"
-            alt="david"
-            width="175"
-            height="200"
-          />
-          <svg width="0" height="0">
-            <clipPath id="about-me-clip-path" clipPathUnits="objectBoundingBox">
-              <path
-                d="M0.988817 0.495446C0.916451 0.768215 0.846516 0.828788 0.59027 0.964455C0.296813 1.11982 -0.0316313 0.731303 0.00244532 0.466705C0.0186686 0.340734 0.135735 0.0404839 0.476163 0.00318194C0.659484 -0.0169051 0.816568 0.0618867 0.876552 0.133433C0.923719 0.189692 1.03554 0.319332 0.988817 0.495446Z"
-              />
-            </clipPath>
-          </svg>
-          <div class="text">
-            <p>
-              Hi, I'm David (they/them), a software engineer from Berlin,
-              Germany currently living and working in Zurich, Switzerland.
-            </p>
-            <p>
-              In 2019 I got fascinated with creating websites after jokingly
-              following an HTML & CSS Tutorial. Curiosity became an obsession,
-              and less than six months later, I completed an immersive
-              <a href="https://spiced-academy.com">Spiced Academy</a> Bootcamp
-              in web development.
-            </p>
-            <p>
-              Fast forward and I'm part of an amazing team at
-              <a href="https://prosperitysolutions.li">prosperity solutions</a>
-              that's changing the world one line of code at a time.
-            </p>
-            <p>
-              The first thing to know about me is that I get excited about
-              anything and everything- be it growing vegetables on my balcony,
-              color theory or solving a complex software problem.
-            </p>
-            <p>
-              As a growth seeker, I regard never-ending development and learning
-              a cornerstone of my personal and professional life. I'm not shy to
-              give constructive feedback, as I'm immensely thankful to receive
-              it.
-            </p>
-          </div>
-          <div id="about-me-values-container" class="text">
-            <div>
-              <h2>
-                <span role="img" aria-label="speech balloon">💬</span>
-                When interacting with others...
-              </h2>
-              <p>
-                ...I'm inclined to be joyful and lighthearted, but know when
-                things need to be taken seriously
-              </p>
-            </div>
-
-            <div>
-              <h2>
-                <span role="img" aria-label="compass">🧭</span>
-                When planning...
-              </h2>
-              <p>
-                ...I think abstractly, make backup plans in case things go wrong
-                and use determination to overcome obstacles
-              </p>
-            </div>
-
-            <div>
-              <h2>
-                <span role="img" aria-label="magnifying glass">🔎</span>
-                When solving problems...
-              </h2>
-              <p>
-                ...I like to draw on other peoples thinking to stress test my
-                own ideas and balance exploring new possibilities with the need
-                to take decisive action
-              </p>
-            </div>
-
-            <div>
-              <h2>
-                <span role="img" aria-label="tornado">🌪</span>
-                Under stress...
-              </h2>
-              <p>
-                ...I remain calm, focus on what matters most, tend to talk out
-                my thinking and experiences, and confidently turn mistakes into
-                learning opportunities and self-growth
-              </p>
-            </div>
-
-            <div>
-              <h2>
-                <span role="img" aria-label="open book">📖 </span>
-                When learning...
-              </h2>
-              <p>
-                ...I like to hear other people's insights and knowledge as much
-                as I like to share my own and love exploring new areas of
-                interest I don't yet know about
-              </p>
-            </div>
-
-            <div>
-              <h2>
-                <span role="img" aria-label="baseball">⚾️</span>
-                On a team...
-              </h2>
-              <p>
-                ...I believe the best way to achieve challenging goals is to
-                safely voice thoughts and feelings directly and being mutually
-                supportive and helpful.
-              </p>
-            </div>
-          </div>
-
-          <div id="about-me-experiences-container">
-            <h2>Experiences</h2>
-            <ol>
-              <li>
-                <span class="about-me-experiences-title">
-                  Software engineer
-                </span>
-                <span
-                  class="about-me-experiences-dates"
-                  id="about-me-experiences-current-job-time"
-                  >Feb 2021 — Present</span
-                >
-                <span class="about-me-experiences-company">
-                  <a href="https://prosperity-solutions.li"
-                    >prosperity solutions</a
-                  >, Berlin / Zurich
-                </span>
-              </li>
-              <li>
-                <span class="about-me-experiences-title"
-                  >Junior Frontend Developer
-                </span>
-                <span class="about-me-experiences-dates"
-                  >Jul 2020 — Feb 2021 · 7 mos</span
-                >
-                <span class="about-me-experiences-company">
-                  <a href="https://prosperity-solutions.li"
-                    >prosperity solutions</a
-                  >, Berlin
-                </span>
-              </li>
-              <li>
-                <span class="about-me-experiences-title"
-                  >Full Stack Web Development Bootcamp
-                </span>
-                <span class="about-me-experiences-dates"
-                  >Nov 2019 — Feb 2020 · 3 mos</span
-                >
-                <span class="about-me-experiences-company">
-                  <a href="https://spiced-academy.com">Spiced Academy</a>,
-                  Berlin
-                </span>
-              </li>
-            </ol>
-          </div>
-        </div>
-
-        <div id="about-me-external-links">
-          <h2>External links</h2>
-          <ul>
-            <li>
-              <span role="img" aria-label="goggles">🥽</span>
-              <span
-                >Follow my code on Github:&nbsp;
-                <a href="https://github.com/david-aurel" class="italic"
-                  >github.com/david-aurel</a
-                >
-              </span>
-            </li>
-            <li>
-              <span role="img" aria-label="linked paperclips">🖇</span>
-              <span
-                >Connect with me on LinkedIn:&nbsp;
-                <a href="https://linkedin.com/in/daviddurlan" class="italic"
-                  >linkedin.com/in/daviddurlan</a
-                >
-              </span>
-            </li>
-            <li>
-              <span role="img" aria-label="speech balloon">💬</span>
-              <span>
-                Write me an Email:&nbsp;
-                <span>
-                  <a
-                    href="mailto:d@viddurlan.com?subject=Hi!"
-                    id="email"
-                    class="italic"
-                    >d@viddurlan.com</a
-                  >
-                  <button
-                    class="copy-button"
-                    aria-label="copy email address"
-                    title="copy email address"
-                  >
-                    <svg class="icon icon-m">
-                      <use xlink:href="#copy-icon"></use>
-                    </svg>
-                    <svg class="icon icon-m">
-                      <use xlink:href="#success-icon"></use>
-                    </svg>
-                  </button>
-                </span>
-              </span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </main>
 
     <!-- projects page -->
     <main id="projects" class="outer-page">
       <div class="inner-page">
+        <section>
+          <h1>Interactive Lizard</h1>
+          <article class="text">
+            <p>
+              Interactive lizard that follows the cursor with its head, and
+              moves towards it when clicking.
+            </p>
+            <p>
+              First time since High school I actually needed my linear algebra
+              knowledge.
+            </p>
+            <p>
+              Inspect it closer on
+              <a
+                href="https://github.com/david-aurel/personal_website/blob/main/lizard/lizard.js"
+                taget="_blank"
+                rel="noopener noreferrer"
+                >Github</a
+              >.
+            </p>
+            <button id="lizard-button">turn lizard on</button>
+
+            <div id="lizard-outer-container">
+              <div id="lizard-inner-container" role="img" aria-label="lizard">
+                <img
+                  id="lizard-fallback"
+                  src="/lizard/fallback.webp"
+                  alt=""
+                  width="100"
+                  height="100"
+                />
+                <canvas
+                  id="lizard-body-canvas"
+                  width="90"
+                  height="132"
+                ></canvas>
+                <span id="lizard-head-location"></span>
+                <img
+                  id="lizard-head"
+                  src="/lizard/lizard-head.webp"
+                  width="38"
+                  height="38"
+                  alt=""
+                />
+              </div>
+            </div>
+            <img
+              id="lizard-sprite"
+              src="/lizard/lizard-sprite.webp"
+              alt=""
+              width="750"
+              height="880"
+            />
+          </article>
+        </section>
+
         <section>
           <h1>SVG CSS Animation</h1>
           <article class="text">
@@ -1004,7 +841,10 @@
                 >Github</a
               >.
             </p>
-            <img src="./social-network/social-network-screens.webp" />
+            <img
+              src="./social-network/social-network-screens.webp"
+              class="full-width-img"
+            />
             <h3>Backend</h3>
             <ul>
               <li>
@@ -1247,8 +1087,9 @@
       </div>
     </main>
 
-    <!-- main page -->
-    <main id="home" class="outer-page">
+    <main id="hello"><h1>hello</h1></main>
+    <!-- lizard page -->
+    <main id="lizard" class="outer-page">
       <div class="inner-page">
         <div id="lizard-outer-container">
           <div id="lizard-inner-container" role="img" aria-label="lizard">
@@ -1278,9 +1119,225 @@
           height="880"
         />
       </div>
-      <footer>
-        <a href="#legal" class="link">Legal</a>
-      </footer>
+    </main>
+
+    <!-- about me page -->
+    <main id="about-me" class="outer-page">
+      <div class="inner-page">
+        <h1>About me</h1>
+
+        <div id="about-me-outer-container">
+          <img
+            src="/about-me/david.webp"
+            alt="david"
+            width="175"
+            height="200"
+          />
+          <svg width="0" height="0">
+            <clipPath id="about-me-clip-path" clipPathUnits="objectBoundingBox">
+              <path
+                d="M0.988817 0.495446C0.916451 0.768215 0.846516 0.828788 0.59027 0.964455C0.296813 1.11982 -0.0316313 0.731303 0.00244532 0.466705C0.0186686 0.340734 0.135735 0.0404839 0.476163 0.00318194C0.659484 -0.0169051 0.816568 0.0618867 0.876552 0.133433C0.923719 0.189692 1.03554 0.319332 0.988817 0.495446Z"
+              />
+            </clipPath>
+          </svg>
+          <div class="text">
+            <p>
+              Hi, I'm David (they/them), a software engineer from Berlin,
+              Germany currently living and working in Zurich, Switzerland.
+            </p>
+            <p>
+              In 2019 I got fascinated with creating websites after jokingly
+              following an HTML & CSS Tutorial. Curiosity became an obsession,
+              and less than six months later, I completed an immersive
+              <a href="https://spiced-academy.com">Spiced Academy</a> Bootcamp
+              in web development.
+            </p>
+            <p>
+              Fast forward and I'm part of an amazing team at
+              <a href="https://prosperitysolutions.li">prosperity solutions</a>
+              that's changing the world one line of code at a time.
+            </p>
+            <p>
+              The first thing to know about me is that I get excited about
+              anything and everything- be it growing vegetables on my balcony,
+              color theory or solving a complex software problem.
+            </p>
+            <p>
+              As a growth seeker, I regard never-ending development and learning
+              a cornerstone of my personal and professional life. I'm not shy to
+              give constructive feedback, as I'm immensely thankful to receive
+              it.
+            </p>
+          </div>
+          <div id="about-me-values-container" class="text">
+            <div>
+              <h2>
+                <span role="img" aria-label="speech balloon">💬</span>
+                When interacting with others...
+              </h2>
+              <p>
+                ...I'm inclined to be joyful and lighthearted, but know when
+                things need to be taken seriously
+              </p>
+            </div>
+
+            <div>
+              <h2>
+                <span role="img" aria-label="compass">🧭</span>
+                When planning...
+              </h2>
+              <p>
+                ...I think abstractly, make backup plans in case things go wrong
+                and use determination to overcome obstacles
+              </p>
+            </div>
+
+            <div>
+              <h2>
+                <span role="img" aria-label="magnifying glass">🔎</span>
+                When solving problems...
+              </h2>
+              <p>
+                ...I like to draw on other peoples thinking to stress test my
+                own ideas and balance exploring new possibilities with the need
+                to take decisive action
+              </p>
+            </div>
+
+            <div>
+              <h2>
+                <span role="img" aria-label="tornado">🌪</span>
+                Under stress...
+              </h2>
+              <p>
+                ...I remain calm, focus on what matters most, tend to talk out
+                my thinking and experiences, and confidently turn mistakes into
+                learning opportunities and self-growth
+              </p>
+            </div>
+
+            <div>
+              <h2>
+                <span role="img" aria-label="open book">📖 </span>
+                When learning...
+              </h2>
+              <p>
+                ...I like to hear other people's insights and knowledge as much
+                as I like to share my own and love exploring new areas of
+                interest I don't yet know about
+              </p>
+            </div>
+
+            <div>
+              <h2>
+                <span role="img" aria-label="baseball">⚾️</span>
+                On a team...
+              </h2>
+              <p>
+                ...I believe the best way to achieve challenging goals is to
+                safely voice thoughts and feelings directly and being mutually
+                supportive and helpful.
+              </p>
+            </div>
+          </div>
+
+          <div id="about-me-experiences-container">
+            <h2>Experiences</h2>
+            <ol>
+              <li>
+                <span class="about-me-experiences-title">
+                  Software engineer
+                </span>
+                <span
+                  class="about-me-experiences-dates"
+                  id="about-me-experiences-current-job-time"
+                  >Feb 2021 — Present</span
+                >
+                <span class="about-me-experiences-company">
+                  <a href="https://prosperity-solutions.li"
+                    >prosperity solutions</a
+                  >, Berlin / Zurich
+                </span>
+              </li>
+              <li>
+                <span class="about-me-experiences-title"
+                  >Junior Frontend Developer
+                </span>
+                <span class="about-me-experiences-dates"
+                  >Jul 2020 — Feb 2021 · 7 mos</span
+                >
+                <span class="about-me-experiences-company">
+                  <a href="https://prosperity-solutions.li"
+                    >prosperity solutions</a
+                  >, Berlin
+                </span>
+              </li>
+              <li>
+                <span class="about-me-experiences-title"
+                  >Full Stack Web Development Bootcamp
+                </span>
+                <span class="about-me-experiences-dates"
+                  >Nov 2019 — Feb 2020 · 3 mos</span
+                >
+                <span class="about-me-experiences-company">
+                  <a href="https://spiced-academy.com">Spiced Academy</a>,
+                  Berlin
+                </span>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <div id="about-me-external-links">
+          <h2>External links</h2>
+          <ul>
+            <li>
+              <span role="img" aria-label="goggles">🥽</span>
+              <span
+                >Follow my code on Github:&nbsp;
+                <a href="https://github.com/david-aurel" class="italic"
+                  >github.com/david-aurel</a
+                >
+              </span>
+            </li>
+            <li>
+              <span role="img" aria-label="linked paperclips">🖇</span>
+              <span
+                >Connect with me on LinkedIn:&nbsp;
+                <a href="https://linkedin.com/in/daviddurlan" class="italic"
+                  >linkedin.com/in/daviddurlan</a
+                >
+              </span>
+            </li>
+            <li>
+              <span role="img" aria-label="speech balloon">💬</span>
+              <span>
+                Write me an Email:&nbsp;
+                <span>
+                  <a
+                    href="mailto:d@viddurlan.com?subject=Hi!"
+                    id="email"
+                    class="italic"
+                    >d@viddurlan.com</a
+                  >
+                  <button
+                    class="copy-button"
+                    aria-label="copy email address"
+                    title="copy email address"
+                  >
+                    <svg class="icon icon-m">
+                      <use xlink:href="#copy-icon"></use>
+                    </svg>
+                    <svg class="icon icon-m">
+                      <use xlink:href="#success-icon"></use>
+                    </svg>
+                  </button>
+                </span>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
     </main>
 
     <!-- Icons -->

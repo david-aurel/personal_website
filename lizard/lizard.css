@@ -2,6 +2,8 @@
   display: none;
 }
 #lizard-outer-container {
+  z-index: 1;
+  position: relative;
   width: fit-content;
   padding: 1rem;
 }
@@ -23,9 +25,6 @@
   position: absolute;
   top: 10%;
   left: 53%;
-  /* width: 10px;
-  height: 10px;
-  background-color: blue; */
 }
 
 #lizard-head {

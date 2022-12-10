@@ -1,4 +1,5 @@
-var homePage = "#home";
+var lizardPage = "#projects";
+var lizardIsActive = false
 var lizardRotation = 0;
 var maxSpriteFrame = 19;
 var spriteWidth = 150;
@@ -8,6 +9,8 @@ var movementSpeed = 2; /* lower number => faster */
 var walkingSpeed = 3; /* lower number => faster */
 
 window.onload = function () {
+  var page = document.querySelector(lizardPage)
+  var lizardButton = document.getElementById("lizard-button")
   var lizard = {
     headImg: document.getElementById("lizard-head"),
     headLocation: document.getElementById("lizard-head-location"),
@@ -27,7 +30,7 @@ window.onload = function () {
     lizardHeadImg: lizard.headImg,
     lizardFallbackImg: document.getElementById("lizard-fallback")
   };
-  var lizardInitialLocation = getLocation(lizard.outerContainer);
+  var lizardInitialLocation = getLocation(lizard.outerContainer, page);
 
   initiateCanvas(canvas);
 
@@ -37,17 +40,18 @@ window.onload = function () {
         event,
         lizard,
         lizardInitialLocation,
-        canvas
+        canvas,
+        page
       });
     },
     mouseMove: function (event) {
       throttled(function () {
-        rotateHead({ event, lizard });
+        rotateHead({ event, lizard, page });
       });
     },
     touchstart: function (event) {
       throttled(function () {
-        rotateHead({ event, lizard });
+        rotateHead({ event, lizard, page });
       });
     },
     touchend: function (event) {
@@ -55,28 +59,36 @@ window.onload = function () {
         event,
         lizard,
         lizardInitialLocation,
-        canvas
+        canvas,
+        page,
       });
     },
     touchmove: function (event) {
       throttled(function () {
-        rotateHead({ event, lizard });
+        rotateHead({ event, lizard, page });
       });
+    },
+    lizardButton: {
+      element: lizardButton,
+      click: function () {
+        lizardIsActive = !lizardIsActive
+        lizardButton.innerHTML = lizardIsActive ? "turn lizard off" : "turn lizard on"
+      }
     }
   };
 
-  /* only make the lizard interactive when on the home page*/
+  /* only make the lizard interactive when on the lizard page*/
   var eventListenersActive = false;
-  if (window.location.hash === homePage || window.location.hash === "") {
+  if (window.location.hash === lizardPage || window.location.hash === "") {
     eventListenersActive = true;
     addEventListeners(listeners);
   }
   window.addEventListener("hashchange", function () {
-    if (window.location.hash === homePage && !eventListenersActive) {
+    if (window.location.hash === lizardPage && !eventListenersActive) {
       eventListenersActive = true;
       addEventListeners(listeners);
     }
-    if (window.location.hash !== homePage && eventListenersActive) {
+    if (window.location.hash !== lizardPage && eventListenersActive) {
       eventListenersActive = false;
       removeEventListeners(listeners);
     }
@@ -87,9 +99,10 @@ window.onload = function () {
 function rotateHead(triggerUpdateParameters) {
   var event = triggerUpdateParameters.event;
   var lizard = triggerUpdateParameters.lizard;
+  var page = triggerUpdateParameters.page
 
-  var cursorLocation = getCursorLocation(event);
-  var lizardLocation = getLocation(lizard.headLocation);
+  var cursorLocation = getCursorLocation(event, page);
+  var lizardLocation = getLocation(lizard.headLocation, page);
 
   /* by "shifting" the point between 0deg and 360deg to the back of the
   lizard, we maintain a smooth css transform animation */
@@ -123,13 +136,15 @@ var intervalId;
 var frame = 0;
 /* Updates the DOM */
 function walkToLocation(walkToLocationParameters) {
+  if (!lizardIsActive) return
   var event = walkToLocationParameters.event;
   var lizard = walkToLocationParameters.lizard;
   var lizardInitialLocation = walkToLocationParameters.lizardInitialLocation;
   var canvas = walkToLocationParameters.canvas;
+  var page = walkToLocationParameters.page
 
-  var cursorLocation = getCursorLocation(event);
-  var lizardLocation = getLocation(lizard.headLocation);
+  var cursorLocation = getCursorLocation(event, page);
+  var lizardLocation = getLocation(lizard.headLocation, page);
 
   var angleToCursor = getAngleFromPoints({
     p2: cursorLocation,
@@ -179,19 +194,19 @@ function walkToLocation(walkToLocationParameters) {
     "translate(" +
     Math.round(
       cursorLocation.x -
-        lizardLocation.x +
-        lizardLocation.x -
-        lizardInitialLocation.x -
-        offsetWidth
+      lizardLocation.x +
+      lizardLocation.x -
+      lizardInitialLocation.x -
+      offsetWidth
     ) +
     "px" +
     ", " +
     Math.round(
       cursorLocation.y -
-        lizardLocation.y +
-        lizardLocation.y -
-        lizardInitialLocation.y -
-        offsetHeight
+      lizardLocation.y +
+      lizardLocation.y -
+      lizardInitialLocation.y -
+      offsetHeight
     ) +
     "px)";
 
@@ -229,35 +244,35 @@ function walkToLocation(walkToLocationParameters) {
   lizard.innerContainer.style.transform =
     "rotate(" + (currentRotation + difference) + "deg)";
   lizard.offsetRotation = angleToCursor;
-  rotateHead({ event, lizard });
+  rotateHead({ event, lizard, page });
 }
 
-function getCursorLocation(event) {
+function getCursorLocation(event, page) {
   switch (event.type) {
     case "touchend": {
       const lastTouch = event.changedTouches[event.changedTouches.length - 1];
       return {
-        x: lastTouch.clientX,
-        y: lastTouch.clientY
+        x: lastTouch.clientX + page.scrollLeft,
+        y: lastTouch.clientY + page.scrollTop
       };
     }
     case "touchmove": {
-      return { x: event.touches[0].clientX, y: event.touches[0].clientY };
+      return { x: event.touches[0].clientX + page.scrollLeft, y: event.touches[0].clientY + page.scrollTop };
     }
     default: {
       return {
-        x: event.clientX,
-        y: event.clientY
+        x: event.pageX + page.scrollLeft,
+        y: event.pageY + page.scrollTop,
       };
     }
   }
 }
 
-function getLocation(node) {
+function getLocation(node, page) {
   var nodeClientRect = node.getBoundingClientRect();
   return {
-    x: nodeClientRect.left,
-    y: nodeClientRect.top
+    x: nodeClientRect.left + page.scrollLeft,
+    y: nodeClientRect.top + page.scrollTop
   };
 }
 
@@ -331,6 +346,7 @@ function addEventListeners(listeners) {
   window.addEventListener("touchstart", listeners.touchstart);
   window.addEventListener("touchend", listeners.touchend);
   window.addEventListener("touchmove", listeners.touchmove);
+  listeners.lizardButton.element.addEventListener("click", listeners.lizardButton.click)
 }
 function removeEventListeners(listeners) {
   window.removeEventListener("click", listeners.click);
@@ -338,4 +354,5 @@ function removeEventListeners(listeners) {
   window.removeEventListener("touchstart", listeners.touchstart);
   window.removeEventListener("touchend", listeners.touchend);
   window.removeEventListener("touchmove", listeners.touchmove);
+  listeners.lizardButton.element.removeEventListener("click", listeners.lizardButton.click)
 }
