@@ -70,85 +70,78 @@
     </nav>
 
     <!-- projects page -->
-    <main id="projects" class="outer-page">
+    <main id="projects" class="outer-page" aria-labelledby="project-heading">
       <div class="inner-page">
-        <section>
-          <h1>Interactive Lizard</h1>
-          <article class="text">
-            <p>
-              Interactive lizard that follows the cursor with its head, and
-              moves towards it when clicking.
-            </p>
-            <p>
-              First time since High school I actually needed my linear algebra
-              knowledge.
-            </p>
-            <p>
-              Inspect it closer on
-              <a
-                href="https://github.com/david-aurel/personal_website/blob/main/lizard/lizard.js"
-                taget="_blank"
-                rel="noopener noreferrer"
-                >Github</a
-              >.
-            </p>
-            <button id="lizard-button">turn lizard on</button>
+        <h1 id="project-heading">Projects</h1>
+        <article class="text" aria-labelledby="interactive-lizard-heading">
+          <h2 id="interactive-lizard-heading">Interactive Lizard</h2>
+          <p>
+            Interactive lizard that follows the cursor with its head, and moves
+            towards it when clicking.
+          </p>
+          <p>
+            First time since High school I actually needed my linear algebra
+            knowledge.
+          </p>
+          <p>
+            Inspect it closer on
+            <a
+              href="https://github.com/david-aurel/personal_website/blob/main/lizard/lizard.js"
+              taget="_blank"
+              rel="noopener noreferrer"
+              >Github</a
+            >.
+          </p>
+          <button id="lizard-button">turn lizard on</button>
 
-            <div id="lizard-outer-container">
-              <div id="lizard-inner-container" role="img" aria-label="lizard">
-                <img
-                  id="lizard-fallback"
-                  src="/lizard/fallback.webp"
-                  alt=""
-                  width="100"
-                  height="100"
-                />
-                <canvas
-                  id="lizard-body-canvas"
-                  width="90"
-                  height="132"
-                ></canvas>
-                <span id="lizard-head-location"></span>
-                <img
-                  id="lizard-head"
-                  src="/lizard/lizard-head.webp"
-                  width="38"
-                  height="38"
-                  alt=""
-                />
-              </div>
+          <div id="lizard-outer-container">
+            <div id="lizard-inner-container" role="img" aria-label="lizard">
+              <img
+                id="lizard-fallback"
+                src="/lizard/fallback.webp"
+                alt=""
+                width="100"
+                height="100"
+              />
+              <canvas id="lizard-body-canvas" width="90" height="132"></canvas>
+              <span id="lizard-head-location"></span>
+              <img
+                id="lizard-head"
+                src="/lizard/lizard-head.webp"
+                width="38"
+                height="38"
+                alt=""
+              />
             </div>
-            <img
-              id="lizard-sprite"
-              src="/lizard/lizard-sprite.webp"
-              alt=""
-              width="750"
-              height="880"
-            />
-          </article>
-        </section>
+          </div>
+          <img
+            id="lizard-sprite"
+            src="/lizard/lizard-sprite.webp"
+            alt=""
+            width="750"
+            height="880"
+          />
+        </article>
 
-        <section>
-          <h1>SVG CSS Animation</h1>
-          <article class="text">
-            <p>
-              This project marked the beginning of my passion for coding
-              <span role="img" aria-label="heart">❤️</span>
-            </p>
-            <p>
-              The SVG was created in Adobe Illustrator and animated using
-              vanilla CSS.
-            </p>
-            <p>
-              See how I did it on
-              <a
-                href="https://github.com/david-aurel/character_animation"
-                taget="_blank"
-                rel="noopener noreferrer"
-                >Github</a
-              >.
-            </p>
-          </article>
+        <article class="text" aria-labelledby="svg-css-animation-heading">
+          <h2 id="svg-css-animation-heading">SVG CSS Animation</h2>
+          <p>
+            This project marked the beginning of my passion for coding
+            <span role="img" aria-label="heart">❤️</span>
+          </p>
+          <p>
+            The SVG was created in Adobe Illustrator and animated using vanilla
+            CSS.
+          </p>
+          <p>
+            See how I did it on
+            <a
+              href="https://github.com/david-aurel/character_animation"
+              taget="_blank"
+              rel="noopener noreferrer"
+              >Github</a
+            >.
+          </p>
 
           <div class="illustration-wrapper">
             <input type="radio" id="start" name="animation" />
@@ -161,6 +154,7 @@
                 xmlns:xlink="http://www.w3.org/1999/xlink"
                 viewBox="0 0 400 376.373"
               >
+                <title>person with a laptop on a small boat</title>
                 <defs>
                   <linearGradient
                     id="linear-gradient"
@@ -555,30 +549,33 @@
               <div class="water"><div class="wave"></div></div>
             </div>
           </div>
-        </section>
+        </article>
 
         <hr />
 
-        <section id="connect-four-container">
-          <h1>Connect Four</h1>
-          <article class="text">
-            <p>jQuery. Fun times. Try playing using the keyboard!</p>
-            <p>
-              <kbd aria-label="left arrow key">←</kbd>
-              <kbd aria-label="right arrow key">→</kbd> (Move),
-              <kbd aria-label="return key">Enter ⏎</kbd> (Confirm),
-              <kbd aria-label="R key">R</kbd> (Reset)
-            </p>
-            <p>
-              Contemplate it on
-              <a
-                href="https://github.com/david-aurel/peppermint_code/tree/master/projects/connect_four"
-                taget="_blank"
-                rel="noopener noreferrer"
-                >Github</a
-              >.
-            </p>
-          </article>
+        <article
+          id="connect-four-container"
+          class="text"
+          aria-labelledby="connect-four-heading"
+        >
+          <h2 id="connect-four-heading">Connect Four</h2>
+
+          <p>jQuery. Fun times. Try playing using the keyboard!</p>
+          <p>
+            <kbd aria-label="left arrow key">←</kbd>
+            <kbd aria-label="right arrow key">→</kbd> (Move),
+            <kbd aria-label="return key">Enter ⏎</kbd> (Confirm),
+            <kbd aria-label="R key">R</kbd> (Reset)
+          </p>
+          <p>
+            Contemplate it on
+            <a
+              href="https://github.com/david-aurel/peppermint_code/tree/master/projects/connect_four"
+              taget="_blank"
+              rel="noopener noreferrer"
+              >Github</a
+            >.
+          </p>
           <div class="connect-four">
             <div class="playerDisplay player1"></div>
             <button class="reset">
@@ -820,70 +817,68 @@
             </div>
           </div>
           <script src="/connect-four/script.js"></script>
-        </section>
+        </article>
         <hr />
 
-        <section>
-          <h1>Social Network</h1>
-          <article class="text">
-            <p>
-              Users can sign up and login, reset their password, edit their
-              profile, as well as search for other users and interact with them.
-              They can manage connections, see friends of their friends, or have
-              a chat.
-            </p>
-            <p>
-              Check it out on
-              <a
-                href="https://github.com/david-aurel/social_network"
-                taget="_blank"
-                rel="noopener noreferrer"
-                >Github</a
-              >.
-            </p>
-            <img
-              src="./social-network/social-network-screens.webp"
-              class="full-width-img"
-            />
-            <h3>Backend</h3>
-            <ul>
-              <li>
-                A Node.js Express server and a PostgreSQL database are CRUDfully
-                keeping everything together
-              </li>
-              <li>
-                AWS services like S3 and SES are used to store profile images
-                and send out forgot password emails
-              </li>
-              <li>
-                A Redis database is used to manage codes for resetting the
-                passwords
-              </li>
-              <li>
-                Passwords are being salted, hashed and then encrypted using
-                Bcrypt
-              </li>
-              <li>
-                Cookies and browser sessions are used to manage the logged in /
-                logged out state
-              </li>
-              <li>
-                The app is protected from potential SQL injections and CSURF
-                attacks
-              </li>
-              <li>Socket.io and the WebSocket protocol power a live chat</li>
-            </ul>
-            <h3>Frontend</h3>
-            <ul>
-              <li>React is used to render the UI</li>
-              <li>Redux is used to manage the global frontend state</li>
-              <li>
-                Webpack and Babel are used to bundle, build and compile the
-                frontend
-              </li>
-            </ul>
-          </article>
-        </section>
+        <article class="text" aria-labelledby="social-network-h1">
+          <h2 id="social-network-h1">Social Network</h2>
+          <p>
+            Users can sign up and login, reset their password, edit their
+            profile, as well as search for other users and interact with them.
+            They can manage connections, see friends of their friends, or have a
+            chat.
+          </p>
+          <p>
+            Check it out on
+            <a
+              href="https://github.com/david-aurel/social_network"
+              taget="_blank"
+              rel="noopener noreferrer"
+              >Github</a
+            >.
+          </p>
+          <img
+            src="./social-network/social-network-screens.webp"
+            class="full-width-img"
+            alt="app screenshot"
+          />
+          <h3>Backend</h3>
+          <ul>
+            <li>
+              A Node.js Express server and a PostgreSQL database are CRUDfully
+              keeping everything together
+            </li>
+            <li>
+              AWS services like S3 and SES are used to store profile images and
+              send out forgot password emails
+            </li>
+            <li>
+              A Redis database is used to manage codes for resetting the
+              passwords
+            </li>
+            <li>
+              Passwords are being salted, hashed and then encrypted using Bcrypt
+            </li>
+            <li>
+              Cookies and browser sessions are used to manage the logged in /
+              logged out state
+            </li>
+            <li>
+              The app is protected from potential SQL injections and CSURF
+              attacks
+            </li>
+            <li>Socket.io and the WebSocket protocol power a live chat</li>
+          </ul>
+          <h3>Frontend</h3>
+          <ul>
+            <li>React is used to render the UI</li>
+            <li>Redux is used to manage the global frontend state</li>
+            <li>
+              Webpack and Babel are used to bundle, build and compile the
+              frontend
+            </li>
+          </ul>
+        </article>
         <hr />
       </div>
     </main>
