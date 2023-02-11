@@ -179,6 +179,8 @@
           />
         </article>
 
+        <hr />
+
         <article class="text" aria-labelledby="svg-css-animation-heading">
           <h2 id="svg-css-animation-heading">SVG CSS Animation</h2>
           <p>
@@ -874,10 +876,11 @@
           </div>
           <script src="/connect-four/script.js"></script>
         </article>
+
         <hr />
 
-        <article class="text" aria-labelledby="social-network-h1">
-          <h2 id="social-network-h1">Social Network</h2>
+        <article class="text" aria-labelledby="social-network-heading">
+          <h2 id="social-network-heading">Social Network</h2>
           <p>
             Users can sign up and login, reset their password, edit their
             profile, as well as search for other users and interact with them.
@@ -935,24 +938,21 @@
             </li>
           </ul>
         </article>
-        <hr />
       </div>
     </main>
 
     <!-- legal page -->
-    <main id="legal" class="outer-page">
+    <main id="legal" class="outer-page" aria-labelledby="legal-heading">
       <div class="inner-page">
-        <h1>Datenschutzerklärung</h1>
-        <h2>Allgemeiner Hinweis und Pflichtinformationen</h2>
+        <h1 id="legal-heading">Legal</h1>
+        <h2>Datenschutzerklärung</h2>
+        <h3>Allgemeiner Hinweis und Pflichtinformationen</h3>
         <p>
           Die verantwortliche Stelle für die Datenverarbeitung auf dieser
           Website ist:
         </p>
         <p>
           <span>David Durlan</span>
-          <span>Musterweg 1</span>
-          <span>12345</span>
-          <span>Musterort</span>
           <span>d@aviddurlan.com</span>
         </p>
         <p>
@@ -961,7 +961,7 @@
           personenbezogenen Daten (z.B. Namen, Kontaktdaten o. Ä.).
         </p>
 
-        <h2>Haftung für Links</h2>
+        <h3>Haftung für Links</h3>
         <p>
           Unser Angebot enthält Links zu externen Websites Dritter, auf deren
           Inhalte wir keinen Einfluss haben. Deshalb können wir für diese
@@ -977,7 +977,7 @@
           Bekanntwerden von Rechtsverletzungen werden wir derartige Links
           umgehend entfernen.
         </p>
-        <h2>Urheberrecht</h2>
+        <h3>Urheberrecht</h3>
         <p>
           Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen
           Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung,
@@ -995,7 +995,7 @@
           werden wir derartige Inhalte umgehend entfernen.
         </p>
 
-        <h2>SSL- bzw. TLS-Verschlüsselung</h2>
+        <h3>SSL- bzw. TLS-Verschlüsselung</h3>
         <p>
           Aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher
           Inhalte, die Sie an uns als Seitenbetreiber senden, nutzt unsere
@@ -1005,7 +1005,7 @@
           Ihres Browsers und am Schloss-Symbol in der Browserzeile.
         </p>
 
-        <h2>Server-Log-Dateien</h2>
+        <h3>Server-Log-Dateien</h3>
         <p>
           Unser Hoster erhebt in sog. Logfiles folgende Daten, die Ihr Browser
           übermittelt:
@@ -1074,7 +1074,7 @@
             >https://docs.github.com/en/free-pro-team@latest/github/site-policy/github-data-protection-addendum#attachment-1–the-standard-contractual-clauses-processors</a
           >
         </p>
-        <h2>Rechtliche Hinweise</h2>
+        <h3>Rechtliche Hinweise</h3>
         <p>
           Grundsätzlich ist ein Auftragsverarbeitungsvertrag mit dem Hoster
           abzuschließen. Das bayerische Landesamt für Datenschutzaufsicht hat
@@ -1095,7 +1095,7 @@
           anzuwenden ist.
         </p>
 
-        <h2>Kontaktformular</h2>
+        <h3>Kontaktformular</h3>
         <p>
           Per Kontaktformular übermittelte Daten werden einschließlich Ihrer
           Kontaktdaten gespeichert, um Ihre Anfrage bearbeiten zu können oder um
@@ -1118,7 +1118,7 @@
           - bleiben unberührt.
         </p>
 
-        <h2>Quellen</h2>
+        <h3>Quellen</h3>
         <ul>
           <li>
             <a href="http://www.mein-datenschutzbeauftragter.de"
@@ -1143,181 +1143,170 @@
       <div class="inner-page">
         <h1 id="about-me-heading">About me</h1>
 
-        <div id="about-me-outer-container">
-          <img
-            src="/about-me/david.webp"
-            alt="david"
-            width="175"
-            height="200"
-          />
-          <svg width="0" height="0">
-            <clipPath id="about-me-clip-path" clipPathUnits="objectBoundingBox">
-              <path
-                d="M0.988817 0.495446C0.916451 0.768215 0.846516 0.828788 0.59027 0.964455C0.296813 1.11982 -0.0316313 0.731303 0.00244532 0.466705C0.0186686 0.340734 0.135735 0.0404839 0.476163 0.00318194C0.659484 -0.0169051 0.816568 0.0618867 0.876552 0.133433C0.923719 0.189692 1.03554 0.319332 0.988817 0.495446Z"
-              />
-            </clipPath>
-          </svg>
-          <div class="text">
+        <img src="/about-me/david.webp" alt="david" width="175" height="200" />
+        <svg width="0" height="0">
+          <clipPath id="about-me-clip-path" clipPathUnits="objectBoundingBox">
+            <path
+              d="M0.988817 0.495446C0.916451 0.768215 0.846516 0.828788 0.59027 0.964455C0.296813 1.11982 -0.0316313 0.731303 0.00244532 0.466705C0.0186686 0.340734 0.135735 0.0404839 0.476163 0.00318194C0.659484 -0.0169051 0.816568 0.0618867 0.876552 0.133433C0.923719 0.189692 1.03554 0.319332 0.988817 0.495446Z"
+            />
+          </clipPath>
+        </svg>
+        <div class="text">
+          <p>
+            Hi, I'm David (they/them), a software engineer from Berlin, Germany
+            currently living and working in Zurich, Switzerland.
+          </p>
+          <p>
+            In 2019 I got fascinated with creating websites after jokingly
+            following an HTML & CSS Tutorial. Curiosity became an obsession, and
+            less than six months later, I completed an immersive
+            <a href="https://spiced-academy.com">Spiced Academy</a> Bootcamp in
+            web development.
+          </p>
+          <p>
+            Fast forward and I'm part of an amazing team at
+            <a href="https://prosperitysolutions.li">prosperity solutions</a>
+            that's changing the world one line of code at a time.
+          </p>
+          <p>
+            The first thing to know about me is that I get excited about
+            anything and everything- be it growing vegetables on my balcony,
+            color theory or solving a complex software problem.
+          </p>
+          <p>
+            As a growth seeker, I regard never-ending development and learning a
+            cornerstone of my personal and professional life. I'm not shy to
+            give constructive feedback, as I'm immensely thankful to receive it.
+          </p>
+        </div>
+        <div id="about-me-values-container" class="text">
+          <div>
+            <h2>
+              <span role="img" aria-label="speech balloon">💬</span>
+              When interacting with others...
+            </h2>
             <p>
-              Hi, I'm David (they/them), a software engineer from Berlin,
-              Germany currently living and working in Zurich, Switzerland.
-            </p>
-            <p>
-              In 2019 I got fascinated with creating websites after jokingly
-              following an HTML & CSS Tutorial. Curiosity became an obsession,
-              and less than six months later, I completed an immersive
-              <a href="https://spiced-academy.com">Spiced Academy</a> Bootcamp
-              in web development.
-            </p>
-            <p>
-              Fast forward and I'm part of an amazing team at
-              <a href="https://prosperitysolutions.li">prosperity solutions</a>
-              that's changing the world one line of code at a time.
-            </p>
-            <p>
-              The first thing to know about me is that I get excited about
-              anything and everything- be it growing vegetables on my balcony,
-              color theory or solving a complex software problem.
-            </p>
-            <p>
-              As a growth seeker, I regard never-ending development and learning
-              a cornerstone of my personal and professional life. I'm not shy to
-              give constructive feedback, as I'm immensely thankful to receive
-              it.
+              ...I'm inclined to be joyful and lighthearted, but know when
+              things need to be taken seriously.
             </p>
           </div>
-          <div id="about-me-values-container" class="text">
-            <div>
-              <h2>
-                <span role="img" aria-label="speech balloon">💬</span>
-                When interacting with others...
-              </h2>
-              <p>
-                ...I'm inclined to be joyful and lighthearted, but know when
-                things need to be taken seriously.
-              </p>
-            </div>
 
-            <div>
-              <h2>
-                <span role="img" aria-label="compass">🧭</span>
-                When planning...
-              </h2>
-              <p>
-                ...I think abstractly, make backup plans in case things go wrong
-                and use determination to overcome obstacles.
-              </p>
-            </div>
-
-            <div>
-              <h2>
-                <span role="img" aria-label="magnifying glass">🔎</span>
-                When solving problems...
-              </h2>
-              <p>
-                ...I like to draw on other peoples thinking to stress test my
-                own ideas and balance exploring new possibilities with the need
-                to take decisive action.
-              </p>
-            </div>
-
-            <div>
-              <h2>
-                <span role="img" aria-label="tornado">🌪</span>
-                Under stress...
-              </h2>
-              <p>
-                ...I remain calm, focus on what matters most, tend to talk out
-                my thinking and experiences, and confidently turn mistakes into
-                learning opportunities and self-growth.
-              </p>
-            </div>
-
-            <div>
-              <h2>
-                <span role="img" aria-label="open book">📖 </span>
-                When learning...
-              </h2>
-              <p>
-                ...I like to hear other people's insights and knowledge as much
-                as I like to share my own and love exploring new areas of
-                interest I don't yet know about.
-              </p>
-            </div>
-
-            <div>
-              <h2>
-                <span role="img" aria-label="baseball">⚾️</span>
-                On a team...
-              </h2>
-              <p>
-                ...I believe the best way to achieve challenging goals is to
-                safely voice thoughts and feelings directly and being mutually
-                supportive and helpful.
-              </p>
-            </div>
+          <div>
+            <h2>
+              <span role="img" aria-label="compass">🧭</span>
+              When planning...
+            </h2>
+            <p>
+              ...I think abstractly, make backup plans in case things go wrong
+              and use determination to overcome obstacles.
+            </p>
           </div>
 
-          <div id="about-me-experiences-container">
-            <h2>Experiences</h2>
-            <ol>
-              <li>
-                <span class="about-me-experiences-title">
-                  Senior Software engineer
-                </span>
-                <span
-                  class="about-me-experiences-dates"
-                  id="about-me-experiences-current-job-time"
-                  >Feb 2023 — Present</span
-                >
-                <span class="about-me-experiences-company">
-                  <a href="https://prosperitysolutions.li"
-                    >prosperity solutions</a
-                  >, Zurich
-                </span>
-              </li>
-              <li>
-                <span class="about-me-experiences-title">
-                  Software engineer
-                </span>
-                <span
-                  class="about-me-experiences-dates"
-                  id="about-me-experiences-current-job-time"
-                  >Feb 2021 — Feb 2023</span
-                >
-                <span class="about-me-experiences-company">
-                  <a href="https://prosperitysolutions.li"
-                    >prosperity solutions</a
-                  >, Berlin / Zurich
-                </span>
-              </li>
-              <li>
-                <span class="about-me-experiences-title"
-                  >Junior Frontend Developer
-                </span>
-                <span class="about-me-experiences-dates"
-                  >Jul 2020 — Feb 2021</span
-                >
-                <span class="about-me-experiences-company">
-                  <a href="https://prosperity-solutions.li"
-                    >prosperity solutions</a
-                  >, Berlin
-                </span>
-              </li>
-              <li>
-                <span class="about-me-experiences-title"
-                  >Full Stack Web Development Bootcamp
-                </span>
-                <span class="about-me-experiences-dates"
-                  >Nov 2019 — Feb 2020</span
-                >
-                <span class="about-me-experiences-company">
-                  <a href="https://spiced-academy.com">Spiced Academy</a>,
-                  Berlin
-                </span>
-              </li>
-            </ol>
+          <div>
+            <h2>
+              <span role="img" aria-label="magnifying glass">🔎</span>
+              When solving problems...
+            </h2>
+            <p>
+              ...I like to draw on other peoples thinking to stress test my own
+              ideas and balance exploring new possibilities with the need to
+              take decisive action.
+            </p>
           </div>
+
+          <div>
+            <h2>
+              <span role="img" aria-label="tornado">🌪</span>
+              Under stress...
+            </h2>
+            <p>
+              ...I remain calm, focus on what matters most, tend to talk out my
+              thinking and experiences, and confidently turn mistakes into
+              learning opportunities and self-growth.
+            </p>
+          </div>
+
+          <div>
+            <h2>
+              <span role="img" aria-label="open book">📖 </span>
+              When learning...
+            </h2>
+            <p>
+              ...I like to hear other people's insights and knowledge as much as
+              I like to share my own and love exploring new areas of interest I
+              don't yet know about.
+            </p>
+          </div>
+
+          <div>
+            <h2>
+              <span role="img" aria-label="baseball">⚾️</span>
+              On a team...
+            </h2>
+            <p>
+              ...I believe the best way to achieve challenging goals is to
+              safely voice thoughts and feelings directly and being mutually
+              supportive and helpful.
+            </p>
+          </div>
+        </div>
+
+        <div id="about-me-experiences-container">
+          <h2>Experiences</h2>
+          <ol>
+            <li>
+              <span class="about-me-experiences-title">
+                Senior Software engineer
+              </span>
+              <span
+                class="about-me-experiences-dates"
+                id="about-me-experiences-current-job-time"
+                >Feb 2023 — Present</span
+              >
+              <span class="about-me-experiences-company">
+                <a href="https://prosperitysolutions.li">prosperity solutions</a
+                >, Zurich
+              </span>
+            </li>
+            <li>
+              <span class="about-me-experiences-title">
+                Software engineer
+              </span>
+              <span
+                class="about-me-experiences-dates"
+                id="about-me-experiences-current-job-time"
+                >Feb 2021 — Feb 2023</span
+              >
+              <span class="about-me-experiences-company">
+                <a href="https://prosperitysolutions.li">prosperity solutions</a
+                >, Berlin / Zurich
+              </span>
+            </li>
+            <li>
+              <span class="about-me-experiences-title"
+                >Junior Frontend Developer
+              </span>
+              <span class="about-me-experiences-dates"
+                >Jul 2020 — Feb 2021</span
+              >
+              <span class="about-me-experiences-company">
+                <a href="https://prosperity-solutions.li"
+                  >prosperity solutions</a
+                >, Berlin
+              </span>
+            </li>
+            <li>
+              <span class="about-me-experiences-title"
+                >Full Stack Web Development Bootcamp
+              </span>
+              <span class="about-me-experiences-dates"
+                >Nov 2019 — Feb 2020</span
+              >
+              <span class="about-me-experiences-company">
+                <a href="https://spiced-academy.com">Spiced Academy</a>, Berlin
+              </span>
+            </li>
+          </ol>
         </div>
       </div>
     </main>
