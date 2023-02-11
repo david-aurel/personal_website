@@ -279,30 +279,25 @@ kbd {
   -webkit-clip-path: url(#my-clip-path);
   clip-path: url(#my-clip-path);
 }
-#about-me #about-me-external-links {
-  color: var(--muted-color);
-}
-#about-me #about-me-external-links h1 {
-  font-family: sans-serif;
-}
-#about-me #about-me-external-links li {
+
+#contact li {
   display: flex;
   margin-top: 0.5rem;
 }
-#about-me #about-me-external-links li:first-of-type {
+#contact li:first-of-type {
   margin-top: 0.8rem;
 }
-#about-me #about-me-external-links li > span[role="img"] {
+#contact li > span[role="img"] {
   margin-right: 10px;
 }
-#about-me #about-me-external-links li > span:last-of-type {
+#contact li > span:last-of-type {
   display: inline-flex;
   flex-direction: column;
   word-break: break-word;
   margin-right: 5px;
 }
 @media (min-width: 480px) {
-  #about-me #about-me-external-links li > span:last-of-type {
+  #contact li > span:last-of-type {
     flex-direction: row;
   }
 }
