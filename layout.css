@@ -66,8 +66,6 @@ hr {
   height: 2px;
   border-radius: 2px;
   background: var(--muted-color);
-  z-index: 1;
-  position: relative;
 }
 @media (min-width: 600px) {
   hr {

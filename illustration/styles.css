@@ -97,6 +97,11 @@ input[type="radio"] ~ label {
 .illustration {
   position: relative;
   margin-top: 2rem;
+  z-index: -1;
+}
+.illustration svg {
+  position: relative;
+  z-index: -1;
 }
 
 /* animate motor wiggle */
@@ -303,6 +308,7 @@ input[type="radio"] ~ label {
   transform: translateY(100%);
   opacity: 1;
   transition: transform 5s 7s;
+  z-index: -1;
 }
 #start:checked ~ .illustration .water {
   transform: translateY(0);
