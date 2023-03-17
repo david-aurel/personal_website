@@ -165,7 +165,7 @@ kbd {
   display: flex;
   flex-wrap: wrap;
   gap: 1.3rem;
-  margin-top: 1.5rem;
+  margin: 1.5rem 0;
 }
 #about-me-values-container > * {
   min-width: min-content;
