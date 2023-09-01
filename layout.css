@@ -290,6 +290,11 @@ kbd {
   list-style: disc;
   padding-left: 1rem;
 }
+#screen-share-buddy-img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 0.5rem;
+}
 
 /* legal */
 #legal h2,
