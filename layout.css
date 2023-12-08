@@ -145,58 +145,58 @@ kbd {
   width: 14px;
 }
 
-/* about me */
-#about-me img {
-  clip-path: url("#about-me-clip-path");
+/* about */
+#about img {
+  clip-path: url("#about-clip-path");
   width: 100%;
   height: auto;
   float: left;
   margin-bottom: 1.5rem;
 }
 @media (min-width: 350px) {
-  #about-me img {
+  #about img {
     height: 200px;
     width: 175px;
     margin-right: 1.5rem;
     shape-outside: circle(53%);
   }
 }
-#about-me-values-container {
+#about-values-container {
   display: flex;
   flex-wrap: wrap;
   gap: 1.3rem;
   margin: 1.5rem 0;
 }
-#about-me-values-container > * {
+#about-values-container > * {
   min-width: min-content;
 }
-#about-me-values-container h2 {
+#about-values-container h2 {
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
 @media (min-width: 400px) {
-  #about-me-values-container > * {
+  #about-values-container > * {
     max-width: calc(50% - 1.3rem);
     min-width: min-content;
   }
 }
-#about-me #about-me-experiences-container > *:not(:last-child) {
+#about #about-experiences-container > *:not(:last-child) {
   margin-bottom: 1.5rem;
 }
-#about-me #about-me-experiences-container li {
+#about #about-experiences-container li {
   position: relative;
   display: flex;
   flex-direction: column;
 }
-#about-me #about-me-experiences-container li > * {
+#about #about-experiences-container li > * {
   position: relative;
   padding-left: 3rem;
 }
-#about-me #about-me-experiences-container li:not(:last-of-type) > *:last-child {
+#about #about-experiences-container li:not(:last-of-type) > *:last-child {
   padding-bottom: 1.5rem;
 }
-#about-me #about-me-experiences-container li > *:first-child:before {
+#about #about-experiences-container li > *:first-child:before {
   content: "";
   position: absolute;
   top: 50%;
@@ -208,8 +208,8 @@ kbd {
   opacity: 0.5;
   border-radius: 50%;
 }
-#about-me
-  #about-me-experiences-container
+#about
+  #about-experiences-container
   li:not(:last-of-type)
   > *:not(:first-child):before {
   content: "";
@@ -221,33 +221,33 @@ kbd {
   background-color: var(--muted-color);
   opacity: 0.5;
 }
-#about-me
-  #about-me-experiences-container
+#about
+  #about-experiences-container
   li:not(:last-of-type)
   > *:nth-child(2):before {
   top: 0.75rem;
   height: calc(100% - 0.75rem);
 }
-#about-me
-  #about-me-experiences-container
+#about
+  #about-experiences-container
   li:not(:last-of-type)
   > *:last-child:before {
   height: calc(100% - 0.75rem);
 }
-#about-me #about-me-experiences-container .about-me-experiences-title {
+#about #about-experiences-container .about-experiences-title {
   font-size: 1.2rem;
   font-weight: 600;
 }
-#about-me #about-me-experiences-container .about-me-experiences-dates,
-#about-me #about-me-experiences-container .about-me-experiences-company {
+#about #about-experiences-container .about-experiences-dates,
+#about #about-experiences-container .about-experiences-company {
   padding-top: 0.2rem;
   color: var(--muted-color);
 }
-#about-me #about-me-experiences-container .about-me-experiences-body {
+#about #about-experiences-container .about-experiences-body {
   padding-top: 0.75rem;
 }
 
-#about-me .clipped {
+#about .clipped {
   width: 100px;
   height: 350px;
   background: turquoise url(https://source.unsplash.com/600x600?summer);
